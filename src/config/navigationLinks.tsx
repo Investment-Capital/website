@@ -7,9 +7,6 @@ const navigationLinks: NavigationLinks[] = [
   { name: "Markets", link: "/market/stocks", right: false },
   { name: "Lottery", link: "/lottery", right: false },
   { name: "Leaderboards", link: "/leaderboard/cash", right: false },
-  { name: "Prestiges", link: "/prestiges", right: false },
-  { name: "API", link: "/api", right: true },
-  { name: "Status", link: "/status", right: true },
   { name: "Terms Of Service", link: "/terms", right: true },
   { name: "Privacy Policy", link: "/privacy", right: true },
 ];
