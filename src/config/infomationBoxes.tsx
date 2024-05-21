@@ -2,15 +2,16 @@ import InfomationData from "../types/infomationData";
 
 const infomationBoxes: InfomationData[] = [
   {
+    text: "Build a portfolio with stocks and other investments",
+    title: "Portfolio",
+    link: "/lookup/portfolio",
+  },
+  {
     text: "Buy stocks, housing, shops and machinary from the markets. The prices fluctuate every once in a while. History can be seen on the charts",
     title: "Markets",
     link: "/market/stocks",
   },
-  {
-    text: "Reset your cash and other investments to gain many features and bonuses. These bonuses and features will allow you to build your investment empire",
-    title: "Prestige",
-    link: "/prestiges",
-  },
+
   {
     text: "Create or join a business to start working with fellow investors. Invest your stocks into your business to gain boosts or complete weekly tasks!",
     title: "Businesses",

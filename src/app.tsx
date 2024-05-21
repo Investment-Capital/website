@@ -25,9 +25,6 @@ const App = () => {
         <Route path="/market/:type" element={<p></p>} />
         <Route path="/lottery" element={<p></p>} />
         <Route path="/leaderboard/:type" element={<p></p>} />
-        <Route path="/prestiges" element={<p></p>} />
-        <Route path="/status" element={<p></p>} />
-        <Route path="/api" element={<p></p>} />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </div>
