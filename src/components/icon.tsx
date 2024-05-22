@@ -4,9 +4,10 @@ import Redirect from "../functions/redirect";
 type Data = {
   image: string;
   link: string;
+  name: string;
 };
 
-const Icon = ({ image, link }: Data) => {
+const Icon = ({ image, link, name }: Data) => {
   const [hovered, setHovered] = useState<boolean>(false);
   return (
     <div
@@ -26,6 +27,7 @@ const Icon = ({ image, link }: Data) => {
           opacity: hovered ? 0.7 : undefined,
         }}
         src={image}
+        alt={name}
         onClick={() => Redirect({ newTab: true, to: link })}
       />
     </div>

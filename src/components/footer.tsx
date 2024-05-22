@@ -17,8 +17,12 @@ const Footer = (): JSX.Element => {
           paddingBottom: "12px",
         }}
       >
-        <Icon image={github} link={import.meta.env.VITE_GITHUB} />
-        <Icon image={discord} link={import.meta.env.VITE_SUPPORT_SERVER} />
+        <Icon image={github} link={import.meta.env.VITE_GITHUB} name="Github" />
+        <Icon
+          image={discord}
+          link={import.meta.env.VITE_SUPPORT_SERVER}
+          name="Github"
+        />
       </div>
     </div>
   );

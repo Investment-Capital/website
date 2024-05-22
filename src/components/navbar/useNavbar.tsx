@@ -41,9 +41,9 @@ const useNavbar = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            padding: "15px 20px",
-            paddingTop: mobile ? "5px" : "15px",
-            paddingBottom: mobile ? "0px" : "10px",
+            padding: "20px",
+            paddingTop: mobile ? "5px" : "14px",
+            paddingBottom: mobile ? "0px" : "14px",
             flexDirection: "row",
             backgroundColor:
               isDown && !mobile
@@ -91,7 +91,7 @@ const useNavbar = () => {
               : "translateY(-10px)",
             overflow: "hidden",
             transition:
-              "opacity 0.3s ease-in, transform 0.3s ease-in, max-height 0.3s ease-in",
+              "opacity 0.15s ease-in, transform 0.15s ease-in, max-height 0.15s ease-in",
           }}
         >
           <NavLinks isMobile={mobile} links={[...leftLinks, ...rightLinks]} />
