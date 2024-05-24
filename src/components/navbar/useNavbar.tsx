@@ -49,7 +49,7 @@ const useNavbar = () => {
               isDown && !mobile
                 ? `rgba(0,0,0, ${mobile ? "1" : "0.8"})`
                 : "transparent",
-            transition: "background-color 0.2s, backdrop-filter 0.2s",
+            transition: "background-color 0.15s, backdrop-filter 0.15s",
             backdropFilter: isDown && !mobile ? "blur(7px)" : "unset",
           }}
         >
@@ -91,7 +91,7 @@ const useNavbar = () => {
               : "translateY(-10px)",
             overflow: "hidden",
             transition:
-              "opacity 0.15s ease-in, transform 0.15s ease-in, max-height 0.15s ease-in",
+              "opacity 0.3s ease-in, transform 0.3s ease-in, max-height 0.3s ease-in",
           }}
         >
           <NavLinks isMobile={mobile} links={[...leftLinks, ...rightLinks]} />
