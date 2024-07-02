@@ -1,11 +1,5 @@
-type Data = {
-  to: string;
-  newTab: boolean;
+const redirect = (to: string): void => {
+  window.open(to, " _blank");
 };
 
-const Redirect = ({ to, newTab }: Data): void => {
-  if (newTab) window.open(to, " _blank");
-  if (!newTab) window.location.href = to;
-};
-
-export default Redirect;
+export default redirect;

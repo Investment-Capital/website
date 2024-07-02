@@ -1,31 +1,15 @@
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import Home from "./pages/home";
-import Commands from "./pages/commands";
-import useNavbar from "./components/navbar/useNavbar";
-import { useEffect } from "react";
-import Terms from "./pages/terms";
-import Privacy from "./pages/privacy";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/navbar/navbar";
+import routes from "./config/routes";
 
-const App = () => {
-  const navbar = useNavbar();
-  const location = useLocation();
-
-  useEffect(() => navbar.setMobileDropdownOpen(false), [location]);
-
+const App = (): JSX.Element => {
   return (
     <div>
-      {navbar.elements}
-
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/commands" element={<Commands />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/lookup/:type" element={<p></p>} />
-        <Route path="/market/:type" element={<p></p>} />
-        <Route path="/lottery" element={<p></p>} />
-        <Route path="/leaderboard/:type" element={<p></p>} />
-        <Route path="*" element={<Navigate to={"/"} />} />
+        {routes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
       </Routes>
     </div>
   );

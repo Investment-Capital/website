@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Redirect from "../functions/redirect";
+import redirect from "../functions/redirect";
 
 type Data = {
   image: string;
@@ -28,7 +28,7 @@ const Icon = ({ image, link, name }: Data) => {
         }}
         src={image}
         alt={name}
-        onClick={() => Redirect({ newTab: true, to: link })}
+        onClick={() => redirect(link)}
       />
     </div>
   );

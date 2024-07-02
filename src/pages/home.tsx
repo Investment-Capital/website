@@ -5,10 +5,10 @@ import Statisic from "../components/statistic";
 import StatisicsData from "../types/statisicsData";
 import StatisticContainer from "../containers/statisticContainer";
 import InfomationContainer from "../containers/infomationContainer";
-import Redirect from "../functions/redirect";
 import Footer from "../components/footer";
 import HomeWave from "../components/homeWave";
 import infomationBoxes from "../config/infomationBoxes";
+import redirect from "../functions/redirect";
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 800);
@@ -66,22 +66,12 @@ const Home = () => {
           <Button
             color="#d88c2c"
             text="Add To Server"
-            onClick={() =>
-              Redirect({
-                to: import.meta.env.VITE_BOT_INVITE,
-                newTab: true,
-              })
-            }
+            onClick={() => redirect(import.meta.env.VITE_BOT_INVITE)}
           />
           <Button
             color="#2c2f33"
             text="Join Support Server"
-            onClick={() =>
-              Redirect({
-                to: import.meta.env.VITE_SUPPORT_SERVER,
-                newTab: true,
-              })
-            }
+            onClick={() => redirect(import.meta.env.VITE_SUPPORT_SERVER)}
           />
         </div>
       </div>
@@ -144,12 +134,7 @@ const Home = () => {
         <Button
           color="#d88c2c"
           text="Invite"
-          onClick={() =>
-            Redirect({
-              to: import.meta.env.VITE_BOT_INVITE,
-              newTab: true,
-            })
-          }
+          onClick={() => redirect(import.meta.env.VITE_BOT_INVITE)}
         />
       </div>
       <Footer />

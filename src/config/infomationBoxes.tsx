@@ -11,7 +11,6 @@ const infomationBoxes: InfomationData[] = [
     title: "Markets",
     link: "/market/stocks",
   },
-
   {
     text: "Create or join a business to start working with fellow investors. Invest your stocks into your business to gain boosts or complete weekly tasks!",
     title: "Businesses",

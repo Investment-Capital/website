@@ -1,7 +1,7 @@
 type NavigationLinks = {
   name: string;
-  link: string;
   right: boolean;
+  link?: string;
 };
 
 export default NavigationLinks;

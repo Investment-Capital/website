@@ -9,7 +9,7 @@ type Data = {
 const NavLinks = ({ links, isMobile }: Data) => {
   return links.map((link) => (
     <NavLink
-      link={link.link}
+      link={link.link ?? "/"}
       name={link.name}
       key={link.name}
       isMobile={isMobile}
