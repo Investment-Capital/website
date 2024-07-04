@@ -5,10 +5,8 @@ import Icon from "./icon.tsx";
 
 const Footer = (): JSX.Element => {
   return (
-    <div>
-      <div style={{ fontSize: 0 }}>
-        <EndWave />
-      </div>
+    <div style={{ fontSize: 0 }}>
+      <EndWave />
       <div
         style={{
           backgroundColor: "#4c4c4c",

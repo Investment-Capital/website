@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "./button";
 import { useNavigate } from "react-router-dom";
 import InfomationData from "../types/infomationData";
+import Topography from "./topography";
 
 const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
   const [hovered, setHovered] = useState<boolean>(false);
@@ -12,7 +13,7 @@ const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
       style={{
-        width: "20rem",
+        width: "18rem",
         background: "#1d1e28",
         borderRadius: "22px",
         margin: "15px",
@@ -25,12 +26,16 @@ const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
         display: "flex",
         position: "relative",
         transition: "0.2s",
+        flexGrow: 1,
+        maxWidth: "425px",
       }}
     >
+      <Topography opacity={0.05} color="rgb(216, 140, 44)" />
+
       <div
         style={{
-          padding: "40px 40px 16px 30px",
           textAlign: "left",
+          padding: "40px 40px 20px 30px",
         }}
       >
         <h5
@@ -44,7 +49,7 @@ const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
         </h5>
         <p
           style={{
-            color: "rgba(255, 255, 255, 0.50)",
+            color: "rgba(255, 255, 255, 0.5)",
             fontSize: "20px",
           }}
         >
@@ -59,7 +64,7 @@ const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
         styles={{
           marginTop: "auto",
           marginBottom: "20px",
-          width: "81.5%",
+          width: "85%",
           alignSelf: "center",
           borderRadius: "4px",
           padding: "11px",

@@ -4,12 +4,15 @@ import NavLinks from "./navLinks";
 import MenuIcon from "./menuIcon";
 import { useLocation } from "react-router-dom";
 import routes from "../../config/routes";
+import useDeviceWidth from "../../hooks/useDeviceWidth";
+import useScrollY from "../../hooks/useScrollY";
 
 const Navbar = () => {
   const location = useLocation();
-  const [mobile, setMobile] = useState<boolean>(window.innerWidth <= 1400);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<boolean>(false);
-  const [isDown, setIsDown] = useState<boolean>(window.scrollY !== 0);
+
+  const mobile = useDeviceWidth((width) => width <= 1400);
+  const isDown = useScrollY((scroll) => scroll !== 0);
 
   const leftLinks = routes
     .filter((e) => e.navigation && !e.navigation.right)
@@ -31,14 +34,6 @@ const Navbar = () => {
 
   useEffect(() => setMobileDropdownOpen(false), [location]);
 
-  useEffect(() => {
-    window.addEventListener("resize", () =>
-      setMobile(window.innerWidth <= 1400)
-    );
-
-    window.addEventListener("scroll", () => setIsDown(window.scrollY !== 0));
-  }, []);
-
   return (
     <div
       style={{
@@ -53,7 +48,7 @@ const Navbar = () => {
           position: mobile ? "unset" : "fixed",
           width: isDown && !mobile ? "85%" : "100%",
           zIndex: 100,
-          transition: mobile ? "0s" : "0.2s",
+          transition: mobile ? undefined : "width 0.15s",
           justifyContent: "center",
         }}
       >
@@ -70,10 +65,7 @@ const Navbar = () => {
               isDown && !mobile
                 ? `rgba(0,0,0, ${mobile ? "1" : "0.8"})`
                 : "transparent",
-            transition: !mobile
-              ? "background-color 0.15s, backdrop-filter 0.15s"
-              : undefined,
-            backdropFilter: isDown && !mobile ? "blur(7px)" : "unset",
+            backdropFilter: isDown && !mobile ? "blur(6px)" : "unset",
             borderRadius: "24px",
             margin: isDown && !mobile ? "14px" : undefined,
           }}
@@ -86,17 +78,17 @@ const Navbar = () => {
               />
             ) : (
               <>
-                <NavLogo mobile={mobile} />
-                <NavLinks links={leftLinks} isMobile={mobile} />
+                <NavLogo mobile={false} />
+                <NavLinks links={leftLinks} isMobile={false} />
               </>
             )}
           </div>
 
           <div style={{ display: "flex", flexDirection: "row-reverse" }}>
             {mobile ? (
-              <NavLogo mobile={mobile} />
+              <NavLogo mobile={true} />
             ) : (
-              <NavLinks links={rightLinks.reverse()} isMobile={mobile} />
+              <NavLinks links={rightLinks.reverse()} isMobile={false} />
             )}
           </div>
         </div>
@@ -106,7 +98,6 @@ const Navbar = () => {
         <div
           style={{
             display: "flex",
-
             flexDirection: "column",
             marginLeft: "30px",
             opacity: mobileDropdownOpen ? 1 : 0,
@@ -119,7 +110,7 @@ const Navbar = () => {
               "opacity 0.3s ease-in, transform 0.3s ease-in, max-height 0.3s ease-in",
           }}
         >
-          <NavLinks isMobile={mobile} links={[...leftLinks, ...rightLinks]} />
+          <NavLinks isMobile={true} links={[...leftLinks, ...rightLinks]} />
         </div>
       )}
     </div>

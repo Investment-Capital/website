@@ -1,5 +1,7 @@
+import Topography from "./topography";
+
 type Data = {
-  title: string | null;
+  title: string;
   statisic: number | null;
 };
 
@@ -7,29 +9,38 @@ const Statisic = ({ title, statisic }: Data): JSX.Element => {
   return (
     <div
       style={{
-        height: "fit-content",
-        alignSelf: "flex-end",
-        display: "inline-block",
+        height: "200px",
+        backgroundColor: "rgb(80,80,80, 0.5)",
+        borderRadius: "6px",
+        flexGrow: 1,
+        textAlign: "center",
+        width: "300px",
+        position: "relative",
+        alignItems: "center",
+        display: "flex",
+        justifyContent: "center",
       }}
     >
+      <Topography opacity={0.2} />
+
       <div
         style={{
-          textAlign: "center",
-          padding: "60px",
-          paddingTop: 0,
+          padding: "30px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <h5 style={{ fontSize: "40px", color: "#d88c2c" }}>
-          {statisic ?? "???"}
-        </h5>
-        <p
+        <h3
           style={{
-            fontSize: "20px",
+            fontSize: "30px",
             color: "white",
           }}
         >
           {title ?? "???"}
-        </p>
+        </h3>
+        <h5 style={{ fontSize: "35px", color: "#d88c2c" }}>
+          {statisic ?? "???"}
+        </h5>
       </div>
     </div>
   );

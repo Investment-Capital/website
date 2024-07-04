@@ -9,9 +9,10 @@ import Footer from "../components/footer";
 import HomeWave from "../components/homeWave";
 import infomationBoxes from "../config/infomationBoxes";
 import redirect from "../functions/redirect";
+import useDeviceWidth from "../hooks/useDeviceWidth";
 
 const Home = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 800);
+  const isMobile = useDeviceWidth((width) => width <= 800);
 
   const [statistics, setStatistics] = useState<StatisicsData>({
     investors: null,
@@ -20,10 +21,6 @@ const Home = () => {
   });
 
   useEffect(() => {
-    window.addEventListener("resize", () =>
-      setIsMobile(window.innerWidth <= 800)
-    );
-
     (async () => {
       const data = await fetch(import.meta.env.VITE_API_LINK + `/statistics`);
       if (data.ok) setStatistics(await data.json());
@@ -101,16 +98,10 @@ const Home = () => {
         </InfomationContainer>
       </HomeWave>
 
-      <StatisticContainer>
-        <Statisic title="Investors" statisic={statistics.investors} />
-        <Statisic title="Businesses" statisic={statistics.businesses} />
-        <Statisic title="Guilds" statisic={statistics.guilds} />
-      </StatisticContainer>
-
       <div
         style={{
-          padding: "55px",
-          paddingTop: "100px",
+          padding: "0px 55px",
+          paddingBottom: "35px",
         }}
       >
         <h1
@@ -124,7 +115,8 @@ const Home = () => {
 
         <h4
           style={{
-            color: "grey",
+            color: "rgba(255, 255, 255, 0.50)",
+            fontFamily: `"Lato",  sans-serif`,
             padding: "3px",
           }}
         >
@@ -137,6 +129,24 @@ const Home = () => {
           onClick={() => redirect(import.meta.env.VITE_BOT_INVITE)}
         />
       </div>
+      <div
+        style={{
+          paddingTop: "55px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "24px",
+        }}
+      >
+        <h1 style={{ color: "white", textAlign: "center", margin: "0px 30px" }}>
+          We're growing, and so can your server!
+        </h1>
+        <StatisticContainer>
+          <Statisic title="Investors" statisic={statistics.investors} />
+          <Statisic title="Businesses" statisic={statistics.businesses} />
+          <Statisic title="Guilds" statisic={statistics.guilds} />
+        </StatisticContainer>
+      </div>
+
       <Footer />
     </>
   );
