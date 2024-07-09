@@ -1,18 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavigationLinks from "../../types/navigationLinks";
 
-type Data = {
-  name: string;
-  link: string;
-  isMobile: boolean;
-};
+type Data = Required<Omit<NavigationLinks, "right">>;
 
-const NavLink = ({ name, link, isMobile }: Data): JSX.Element => {
+const NavLink = ({ name, link }: Data): JSX.Element => {
   const [hovered, setHovered] = useState<boolean>(false);
-
   const navigate = useNavigate();
+
   const isCurrentPage =
-    link.toLowerCase().split("/")[1] ==
+    link?.toLowerCase().split("/")[1] ==
     window.location.pathname.toLowerCase().split("/")[1];
 
   return (
@@ -26,7 +23,6 @@ const NavLink = ({ name, link, isMobile }: Data): JSX.Element => {
         margin: "0 10px",
         opacity: !isCurrentPage && hovered ? 0.7 : undefined,
         transition: "0.2s",
-        padding: isMobile ? "4.5px" : undefined,
       }}
     >
       {name}

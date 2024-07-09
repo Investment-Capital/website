@@ -1,22 +1,21 @@
-import { SlashCommandBuilder } from "discord.js";
 import { useEffect, useState } from "react";
+import useFetchApi from "../hooks/useFetchApi";
+import Command from "../types/command";
 
 const Commands = () => {
-  const [commands, setCommands] = useState<any[]>();
+  const [commands, setCommands] = useState<Command[]>();
+  const fetchApi = useFetchApi();
 
   useEffect(() => {
-    (async () => {
-      const data = await fetch(`${import.meta.env.VITE_API_LINK}/commands`);
-      if (data.ok) setCommands(await data.json());
-    })();
+    fetchApi(`/commands`).then(setCommands);
   }, []);
 
   return (
     <div style={{ textAlign: "center", color: "white", padding: "50px" }}>
       {commands &&
-        commands.map((e) => (
-          <div key={e}>
-            <p>Command: /{(e.data as SlashCommandBuilder).name}</p>
+        commands.map((e, index) => (
+          <div key={index}>
+            <p>Command: /{e.data.name}</p>
             <p>Category: {e.category}</p>
           </div>
         ))}

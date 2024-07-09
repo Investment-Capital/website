@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@uidotdev/usehooks": "^2.4.1",
     "babel-plugin-react-compiler": "^0.0.0-experimental-c23de8d-20240515",
     "discord.js": "^14.14.1",
     "react": "^19.0.0-rc-915b914b3a-20240515",

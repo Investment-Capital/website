@@ -9,6 +9,8 @@ import Market from "../pages/market";
 import Privacy from "../pages/privacy";
 import Terms from "../pages/terms";
 import Route from "../types/route";
+import Login from "../pages/auth/login";
+import Logout from "../pages/auth/logout";
 
 const routes: Route[] = [
   {
@@ -85,6 +87,14 @@ const routes: Route[] = [
       name: "Privacy Policy",
       right: true,
     },
+  },
+  {
+    path: "/auth/login",
+    element: <Login />,
+  },
+  {
+    path: "/auth/logout",
+    element: <Logout />,
   },
   {
     path: "*",

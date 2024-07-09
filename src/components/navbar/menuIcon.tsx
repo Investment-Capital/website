@@ -1,17 +1,15 @@
 type Data = {
-  setMobileDropdownOpen: (state: boolean) => any;
-  mobileDropdownOpen: boolean;
+  onClick: () => any;
+  open: boolean;
 };
 
-const MenuIcon = ({ setMobileDropdownOpen, mobileDropdownOpen }: Data) => {
+const MenuIcon = ({ onClick, open }: Data) => {
   return (
     <div
       style={{
-        display: "inline-block",
         cursor: "pointer",
       }}
-      className={`mobileNav-${mobileDropdownOpen ? "open" : "closed"}`}
-      onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+      onClick={onClick}
     >
       {new Array(3).fill("").map((_, index) => (
         <div
@@ -23,10 +21,9 @@ const MenuIcon = ({ setMobileDropdownOpen, mobileDropdownOpen }: Data) => {
             margin: "6px",
             transition: "0.4s",
             borderRadius: "4px",
-
-            opacity: index == 1 && mobileDropdownOpen ? 0 : undefined,
+            opacity: index == 1 && open ? 0 : undefined,
             transform:
-              (index == 0 || index == 2) && mobileDropdownOpen
+              (index == 0 || index == 2) && open
                 ? `rotate(${index == 0 ? "-" : ""}45deg) translate(-7px, ${
                     index == 2 ? "-" : ""
                   }7px)`

@@ -10,9 +10,11 @@ import HomeWave from "../components/homeWave";
 import infomationBoxes from "../config/infomationBoxes";
 import redirect from "../functions/redirect";
 import useDeviceWidth from "../hooks/useDeviceWidth";
+import useFetchApi from "../hooks/useFetchApi";
 
 const Home = () => {
   const isMobile = useDeviceWidth((width) => width <= 800);
+  const fetchApi = useFetchApi();
 
   const [statistics, setStatistics] = useState<StatisicsData>({
     investors: null,
@@ -21,10 +23,7 @@ const Home = () => {
   });
 
   useEffect(() => {
-    (async () => {
-      const data = await fetch(import.meta.env.VITE_API_LINK + `/statistics`);
-      if (data.ok) setStatistics(await data.json());
-    })();
+    fetchApi("/statistics").then(setStatistics);
   }, []);
 
   return (
@@ -100,8 +99,7 @@ const Home = () => {
 
       <div
         style={{
-          padding: "0px 55px",
-          paddingBottom: "35px",
+          padding: "20px 55px",
         }}
       >
         <h1

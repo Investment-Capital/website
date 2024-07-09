@@ -2,18 +2,12 @@ import NavigationLinks from "../../types/navigationLinks";
 import NavLink from "./navLink";
 
 type Data = {
-  isMobile: boolean;
   links: NavigationLinks[];
 };
 
-const NavLinks = ({ links, isMobile }: Data) => {
+const NavLinks = ({ links }: Data) => {
   return links.map((link) => (
-    <NavLink
-      link={link.link ?? "/"}
-      name={link.name}
-      key={link.name}
-      isMobile={isMobile}
-    />
+    <NavLink link={link.link ?? "/"} name={link.name} key={link.name} />
   ));
 };
 

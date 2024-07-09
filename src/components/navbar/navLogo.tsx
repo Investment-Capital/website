@@ -1,12 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import icon from "../../public/icon.webp";
+import useDeviceWidth from "../../hooks/useDeviceWidth";
 
-type Data = {
-  mobile: boolean;
-};
-
-const NavLogo = ({ mobile }: Data): JSX.Element => {
+const NavLogo = (): JSX.Element => {
   const navigate = useNavigate();
+  const mobile = useDeviceWidth((width) => width <= 1400);
 
   return (
     <img

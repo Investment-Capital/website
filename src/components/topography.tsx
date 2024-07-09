@@ -4,7 +4,6 @@ type Data = {
 };
 
 const Topography = ({ color = "#000", opacity = 1 }: Data) => {
-  const rotate = Math.floor(Math.random() * 30);
   return (
     <div
       style={{
@@ -21,15 +20,15 @@ const Topography = ({ color = "#000", opacity = 1 }: Data) => {
     >
       <div
         style={{
-          transform: `rotate(${rotate}deg)`,
+          transform: `rotate(${Math.floor(Math.random() * 30)}deg)`,
           scale: 2.25,
         }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="100%"
-          height="100%"
-          viewBox="0 0 100% 100%"
+          width="1000"
+          height="1000"
+          viewBox="0 0 1000 1000"
         >
           <path
             fill={color}
