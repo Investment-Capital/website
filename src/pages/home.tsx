@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Infomation from "../components/infomation";
-import Button from "../components/button";
 import Statisic from "../components/statistic";
 import StatisicsData from "../types/statisicsData";
 import StatisticContainer from "../containers/statisticContainer";
@@ -11,10 +10,13 @@ import infomationBoxes from "../config/infomationBoxes";
 import redirect from "../functions/redirect";
 import useDeviceWidth from "../hooks/useDeviceWidth";
 import useFetchApi from "../hooks/useFetchApi";
+import ShadowButton from "../components/buttons/shadowButton";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const isMobile = useDeviceWidth((width) => width <= 800);
   const fetchApi = useFetchApi();
+  const navigate = useNavigate();
 
   const [statistics, setStatistics] = useState<StatisicsData>({
     investors: null,
@@ -51,20 +53,28 @@ const Home = () => {
               padding: "3px",
             }}
           >
-            Investment Capital is a economy bot ready to skill up and boost up
-            your Discord server.
+            Investment Capital is a economy system ready to skill up and boost
+            up your Discord server.
             <br />
             Features investment aspects including the stock market.
           </h4>
         </div>
 
-        <div style={{ marginTop: "6px" }}>
-          <Button
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "8px",
+            marginTop: "6px",
+          }}
+        >
+          <ShadowButton
             color="#d88c2c"
             text="Add To Server"
             onClick={() => redirect(import.meta.env.VITE_BOT_INVITE)}
           />
-          <Button
+
+          <ShadowButton
             color="#2c2f33"
             text="Join Support Server"
             onClick={() => redirect(import.meta.env.VITE_SUPPORT_SERVER)}
@@ -110,7 +120,6 @@ const Home = () => {
         >
           Ready to try Investment Capital?
         </h1>
-
         <h4
           style={{
             color: "rgba(255, 255, 255, 0.50)",
@@ -120,12 +129,25 @@ const Home = () => {
         >
           Invite Investment Capital and start giving your server cool perks!
         </h4>
-
-        <Button
-          color="#d88c2c"
-          text="Invite"
-          onClick={() => redirect(import.meta.env.VITE_BOT_INVITE)}
-        />
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "8px",
+            marginTop: "6px",
+          }}
+        >
+          <ShadowButton
+            color="#d88c2c"
+            text="Add to server"
+            onClick={() => redirect(import.meta.env.VITE_BOT_INVITE)}
+          />
+          <ShadowButton
+            color="#2c2f33"
+            text="Login"
+            onClick={() => navigate("/auth/login")}
+          />
+        </div>
       </div>
       <div
         style={{

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./button";
+import Button from "./buttons/button";
 import { useNavigate } from "react-router-dom";
 import InfomationData from "../types/infomationData";
 import Topography from "./topography";
@@ -13,7 +13,7 @@ const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
       style={{
-        width: "18rem",
+        width: "16rem",
         background: "#1d1e28",
         borderRadius: "22px",
         margin: "15px",
@@ -21,21 +21,20 @@ const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
         transform: `scale(${hovered ? "102.5" : "100"}%)`,
         boxShadow: hovered ? `0px 8px 18px 0px #1d1e28` : "none",
         alignItems: "stretch",
-        justifyContent: "flex-start",
         flexDirection: "column",
         display: "flex",
         position: "relative",
         transition: "0.2s",
         flexGrow: 1,
         maxWidth: "425px",
+        padding: "26px",
+        gap: "6px",
       }}
     >
       <Topography opacity={0.05} color="rgb(216, 140, 44)" />
-
       <div
         style={{
           textAlign: "left",
-          padding: "40px 40px 20px 30px",
         }}
       >
         <h5
@@ -56,21 +55,14 @@ const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
           {text}
         </p>
       </div>
-
       <Button
         color="rgb(80,80,80, 0.4)"
         text={`View ` + title}
         onClick={() => navigate(link)}
         styles={{
           marginTop: "auto",
-          marginBottom: "20px",
-          width: "85%",
           alignSelf: "center",
-          borderRadius: "4px",
-          padding: "11px",
-          fontSize: "15px",
-          transition: "0.25s",
-          boxShadow: "none",
+          width: "100%",
         }}
         hoveredStyles={{
           backgroundColor: "rgb(80,80,80, 0.6)",

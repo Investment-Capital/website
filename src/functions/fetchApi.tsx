@@ -1,7 +1,7 @@
 const fetchApi = async (
   path: string,
-  onUnauthorized: () => any,
-  requestData?: RequestInit
+  requestData: RequestInit,
+  onUnauthorized: () => any
 ) => {
   const data = await fetch(path, requestData);
   const json = await data.json();

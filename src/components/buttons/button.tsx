@@ -25,21 +25,18 @@ const Button = ({
       style={{
         ...{
           color: "white",
-          borderRadius: "10px",
+          borderRadius: "4px",
           borderWidth: "2px",
           fontWeight: 600,
-          fontSize: "16px",
+          fontSize: "15px",
           lineHeight: "1.35em",
-          margin: "6px 4px",
           border: "none",
-          padding: "15px 48px",
+          padding: "9px",
           cursor: "pointer",
           backgroundColor: color,
-          boxShadow: hovered
-            ? `${color} 0px 6px 16px 0px`
-            : `${color} 0px 0px 0px 0px`,
-          transition: "0.2s",
+          transition: "0.25s",
         },
+
         ...styles,
         ...(hovered && hoveredStyles),
       }}

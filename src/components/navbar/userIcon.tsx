@@ -1,10 +1,10 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Button from "../button";
-import useDeviceWidth from "../../hooks/useDeviceWidth";
+import Button from "../buttons/button";
 import useFetchApi from "../../hooks/useFetchApi";
 import SavedUser from "../../types/savedUser";
+import useDeviceWidth from "../../hooks/useDeviceWidth";
 
 const UserIcon = () => {
   const [authorization] = useLocalStorage("authorization", null);
@@ -36,11 +36,6 @@ const UserIcon = () => {
       }
       color="rgb(80,80,80, 0.6)"
       styles={{
-        borderRadius: "4px",
-        padding: "9px",
-        fontSize: "15px",
-        transition: "0.25s",
-        boxShadow: "none",
         margin: mobile ? "10px 0" : "0 10px",
       }}
       hoveredStyles={{

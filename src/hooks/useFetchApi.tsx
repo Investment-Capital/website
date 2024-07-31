@@ -8,14 +8,10 @@ const useFetchApi = () => {
   const [_, setAuthorization] = useLocalStorage("authorization", null);
 
   return (path: string, requestData?: RequestInit) =>
-    fetchApi(
-      getApiURL(path),
-      () => {
-        navigate("/auth/login");
-        setAuthorization(null);
-      },
-      requestData
-    );
+    fetchApi(getApiURL(path), requestData ?? {}, () => {
+      navigate("/auth/login");
+      setAuthorization(null);
+    });
 };
 
 export default useFetchApi;

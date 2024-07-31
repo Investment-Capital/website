@@ -44,7 +44,7 @@ const NavbarContainer = ({ children }: Data) => {
           }}
         >
           {children}
-        </div>{" "}
+        </div>
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ const Topography = ({ color = "#000", opacity = 1 }: Data) => {
     >
       <div
         style={{
-          transform: `rotate(${Math.floor(Math.random() * 30)}deg)`,
+          transform: `rotate(${Math.floor(Math.random() * 360)}deg)`,
           scale: 2.25,
         }}
       >

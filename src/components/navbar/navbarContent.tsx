@@ -22,16 +22,9 @@ const NavbarContent = ({ leftLinks, rightLinks }: Data) => {
 
   return (
     <>
-      {!mobile && (
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <NavLogo />
-          <NavLinks links={leftLinks} />
-        </div>
-      )}
-
       <div style={{ display: "flex", alignItems: "center" }}>
-        {!mobile && <NavLinks links={rightLinks} />}
-        <UserIcon />
+        <NavLogo />
+        {!mobile && <NavLinks links={leftLinks} />}
       </div>
 
       {mobile && (
@@ -47,10 +40,13 @@ const NavbarContent = ({ leftLinks, rightLinks }: Data) => {
               open={mobileDropdownOpen}
             />
           </div>
-
-          <NavLogo />
         </>
       )}
+
+      <div style={{ display: "flex", alignItems: "center" }}>
+        {!mobile && <NavLinks links={rightLinks} />}
+        <UserIcon />
+      </div>
     </>
   );
 };
