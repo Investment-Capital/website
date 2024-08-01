@@ -13,17 +13,17 @@ const NavbarContainer = ({ children }: Data) => {
     <div
       style={{
         width: "100%",
-        height: mobile ? "auto" : "75px",
+        height: "75px",
         display: !mobile ? "flex" : undefined,
         justifyContent: "center",
       }}
     >
       <div
         style={{
-          position: mobile ? "unset" : "fixed",
+          position: "fixed",
           width: isDown && !mobile ? "85%" : "100%",
           zIndex: 100,
-          transition: mobile ? undefined : "width 0.15s",
+          transition: "width 0.15s",
           justifyContent: "center",
         }}
       >
@@ -33,14 +33,14 @@ const NavbarContainer = ({ children }: Data) => {
             justifyContent: "space-between",
             alignItems: "center",
             padding: "20px",
-            paddingTop: mobile ? "5px" : "14px",
-            paddingBottom: mobile ? "0px" : "14px",
+            paddingTop: mobile ? "3px" : "14px",
+            paddingBottom: mobile ? "3px" : "14px",
             flexDirection: "row",
-            backgroundColor:
-              isDown && !mobile ? `rgba(0,0,0, 0.8)` : "transparent",
-            backdropFilter: isDown && !mobile ? "blur(6px)" : "unset",
-            borderRadius: "24px",
+            backgroundColor: isDown ? `rgba(0,0,0, 0.8)` : "transparent",
+            backdropFilter: isDown ? "blur(6px)" : "unset",
+            borderRadius: mobile ? "0px" : "24px",
             margin: isDown && !mobile ? "14px" : undefined,
+            transition: "background-color 0.15s, backdropFilter 0.15s",
           }}
         >
           {children}

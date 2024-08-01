@@ -16,7 +16,7 @@ const DropdownContainer = ({ children, open }: Data) => {
           maxHeight: open ? "340px" : 0,
           transform: open ? "translateY(0)" : "translateY(-10px)",
           transition:
-            "opacity 0.3s ease-in, transform 0.3s ease-in, max-height 0.3s ease-in",
+            "opacity 0.1s ease-in, transform 0.15s ease-in, max-height 0.25s ease-in",
           backgroundColor: `rgba(0,0,0, 0.9)`,
           backdropFilter: "blur(6px)",
           overflow: "hidden",
