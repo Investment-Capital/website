@@ -32,8 +32,9 @@ const Home = () => {
     <>
       <div
         style={{
-          padding: "55px",
-          paddingBottom: "10px",
+          paddingRight: isMobile ? "40px" : "55px",
+          paddingLeft: isMobile ? "40px" : "55px",
+          paddingTop: isMobile ? "25px" : "55px",
         }}
       >
         <div>
@@ -109,7 +110,8 @@ const Home = () => {
 
       <div
         style={{
-          padding: "20px 55px",
+          paddingRight: isMobile ? "40px" : "55px",
+          paddingLeft: isMobile ? "40px" : "55px",
         }}
       >
         <h1
@@ -151,7 +153,7 @@ const Home = () => {
       </div>
       <div
         style={{
-          paddingTop: "55px",
+          paddingTop: "70px",
           display: "flex",
           flexDirection: "column",
           gap: "24px",

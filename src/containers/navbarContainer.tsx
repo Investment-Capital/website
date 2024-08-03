@@ -7,14 +7,14 @@ type Data = {
 
 const NavbarContainer = ({ children }: Data) => {
   const mobile = useDeviceWidth((width) => width <= 1400);
-  const isDown = useScrollY((scroll) => scroll !== 0);
+  const isDown = useScrollY((scroll) => scroll >= 10);
 
   return (
     <div
       style={{
         width: "100%",
         height: "75px",
-        display: !mobile ? "flex" : undefined,
+        display: "flex",
         justifyContent: "center",
       }}
     >
