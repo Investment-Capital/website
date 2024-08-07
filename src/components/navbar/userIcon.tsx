@@ -1,6 +1,6 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../buttons/button";
 import useFetchApi from "../../hooks/useFetchApi";
 import SavedUser from "../../types/savedUser";
@@ -12,7 +12,6 @@ const UserIcon = () => {
   const [user, setUser] = useState<SavedUser | null>(null);
   const navigate = useNavigate();
   const fetchApi = useFetchApi();
-  const location = useLocation();
 
   useEffect(() => {
     (async () => {
@@ -31,9 +30,7 @@ const UserIcon = () => {
   return !authorization ? (
     <Button
       text="Login"
-      onClick={() =>
-        location.pathname !== "auth/login" && navigate("/auth/login")
-      }
+      onClick={() => navigate("/auth/login")}
       color="rgb(80,80,80, 0.6)"
       styles={{
         margin: mobile ? "10px 0" : "0 10px",

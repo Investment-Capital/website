@@ -44,7 +44,15 @@ const Home = () => {
               color: "white",
             }}
           >
-            It's time to add investment capital to your server.
+            It's time to add{" "}
+            <span
+              style={{
+                color: "#d88c2c",
+              }}
+            >
+              Investment Capital
+            </span>{" "}
+            to your server.
           </h1>
 
           <h4
@@ -120,7 +128,15 @@ const Home = () => {
             color: "white",
           }}
         >
-          Ready to try Investment Capital?
+          Ready to try{" "}
+          <span
+            style={{
+              color: "#d88c2c",
+            }}
+          >
+            Investment Capital
+          </span>
+          ?
         </h1>
         <h4
           style={{
