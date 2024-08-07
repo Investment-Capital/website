@@ -1,4 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@font-face {
+  font-family: "Poppins";
+  font-weight: 400;
+  src: url(/src/public/poppins/400.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 700;
+  src: url(/src/public/poppins/700.woff2) format("woff2");
+}
 
 ::-webkit-scrollbar {
   display: none;
@@ -7,7 +17,8 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", Inter, sans-serif;
+  font-family: "Poppins";
+  font-display: block;
 }
 
 body {

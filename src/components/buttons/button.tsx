@@ -34,7 +34,7 @@ const Button = ({
           padding: "9px",
           cursor: "pointer",
           backgroundColor: color,
-          transition: "0.25s",
+          transition: "background-color 0.25s",
         },
 
         ...styles,

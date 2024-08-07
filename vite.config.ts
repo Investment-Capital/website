@@ -9,9 +9,12 @@ export default defineConfig({
         plugins: [["babel-plugin-react-compiler"]],
       },
     }),
-    viteSingleFile(),
+    viteSingleFile({
+      useRecommendedBuildConfig: false,
+    }),
   ],
   build: {
     assetsInlineLimit: 15_000,
+    minify: "terser",
   },
 });

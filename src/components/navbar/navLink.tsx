@@ -22,7 +22,7 @@ const NavLink = ({ name, link }: Data): JSX.Element => {
         cursor: isCurrentPage ? "not-allowed" : "pointer",
         margin: "0 10px",
         opacity: !isCurrentPage && hovered ? 0.7 : undefined,
-        transition: "0.2s",
+        transition: "color 0.2s, opacity 0.2s",
       }}
     >
       {name}
