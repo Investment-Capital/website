@@ -1,15 +1,23 @@
+import useDeviceWidth from "../hooks/useDeviceWidth";
+
 type Data = {
   children: React.ReactNode;
 };
 
 const InfomationContainer = ({ children }: Data): JSX.Element => {
+  const isMobile = useDeviceWidth((width) => width <= 800);
+
   return (
     <div
       style={{
-        padding: "28px",
+        paddingBottom: "20px",
+        paddingTop: "30px",
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
+        paddingRight: isMobile ? "40px" : "55px",
+        paddingLeft: isMobile ? "40px" : "55px",
+        gap: "20px",
       }}
     >
       {children}

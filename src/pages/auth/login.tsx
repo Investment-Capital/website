@@ -33,22 +33,15 @@ const Login = () => {
     }
 
     (async () => {
-      let loginData;
-
-      try {
-        loginData = await fetchApi("/auth/login", {
-          method: "POST",
-          headers: new Headers({
-            "content-type": "Application/json",
-          }),
-          body: JSON.stringify({
-            code,
-          }),
-        });
-      } catch {
-        window.location.href = discordLoginURL;
-        return;
-      }
+      const loginData = await fetchApi("/auth/login", {
+        method: "POST",
+        headers: new Headers({
+          "content-type": "Application/json",
+        }),
+        body: JSON.stringify({
+          code,
+        }),
+      });
 
       setAuthorization(loginData.authorization);
 

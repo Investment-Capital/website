@@ -173,9 +173,11 @@ const Home = () => {
           display: "flex",
           flexDirection: "column",
           gap: "24px",
+          paddingRight: isMobile ? "40px" : "55px",
+          paddingLeft: isMobile ? "40px" : "55px",
         }}
       >
-        <h1 style={{ color: "white", textAlign: "center", margin: "0px 30px" }}>
+        <h1 style={{ color: "white", textAlign: "center" }}>
           We're growing, and so can your server!
         </h1>
         <StatisticContainer>

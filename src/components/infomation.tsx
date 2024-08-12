@@ -16,7 +16,7 @@ const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
         width: "16rem",
         background: "#1d1e28",
         borderRadius: "22px",
-        margin: "15px",
+        // margin: "15px",
         cursor: "pointer",
         transform: `scale(${hovered ? "102.5" : "100"}%)`,
         boxShadow: hovered ? `0px 8px 18px 0px #1d1e28` : "none",

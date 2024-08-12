@@ -34,6 +34,7 @@ const UserIcon = () => {
       color="rgb(80,80,80, 0.6)"
       styles={{
         margin: mobile ? "10px 0" : "0 10px",
+        transition: "background-color 0.25s",
       }}
       hoveredStyles={{
         backgroundColor: "rgb(80,80,80, 0.9)",
