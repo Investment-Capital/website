@@ -35,9 +35,6 @@ const Login = () => {
     (async () => {
       const loginData = await fetchApi("/auth/login", {
         method: "POST",
-        headers: new Headers({
-          "content-type": "Application/json",
-        }),
         body: JSON.stringify({
           code,
         }),
@@ -62,7 +59,8 @@ const Login = () => {
         backgroundColor: "red",
       }}
     >
-      <h1>Welcome, {userData.displayName}</h1>
+      <img src={userData.avatar} />
+      <h1>Welcome {userData.username}</h1>
     </div>
   ) : (
     "Loading"

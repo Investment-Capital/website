@@ -3,7 +3,14 @@ const fetchApi = async (
   requestData: RequestInit,
   onUnauthorized: () => any
 ) => {
-  const data = await fetch(path, requestData);
+  console.log(requestData);
+  const data = await fetch(path, {
+    ...requestData,
+    headers: {
+      ...requestData.headers,
+      "content-type": "application/json",
+    },
+  });
   const json = await data.json();
 
   if ("error" in json) {

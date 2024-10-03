@@ -19,9 +19,9 @@ const UserIcon = () => {
 
       setUser(
         await fetchApi("/account/user", {
-          headers: new Headers({
+          headers: {
             authorization,
-          }),
+          },
         })
       );
     })();
