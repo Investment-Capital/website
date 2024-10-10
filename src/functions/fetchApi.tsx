@@ -3,7 +3,6 @@ const fetchApi = async (
   requestData: RequestInit,
   onUnauthorized: () => any
 ) => {
-  console.log(requestData);
   const data = await fetch(path, {
     ...requestData,
     headers: {

@@ -3,7 +3,7 @@ type Data = {
   open: boolean;
 };
 
-const MenuIcon = ({ onClick, open }: Data) => {
+const MenuIcon = ({ onClick, open }: Data): JSX.Element => {
   return (
     <div
       style={{

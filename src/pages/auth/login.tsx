@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useFetchApi from "../../hooks/useFetchApi";
 import SavedUser from "../../types/savedUser";
 
-const Login = () => {
+const Login = (): JSX.Element => {
   const location = useLocation();
   const naviagte = useNavigate();
   const fetchApi = useFetchApi();
@@ -63,7 +63,7 @@ const Login = () => {
       <h1>Welcome {userData.username}</h1>
     </div>
   ) : (
-    "Loading"
+    <p>Loading</p>
   );
 };
 

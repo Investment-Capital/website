@@ -5,7 +5,7 @@ type Data = {
   links: NavigationLinks[];
 };
 
-const NavLinks = ({ links }: Data) => {
+const NavLinks = ({ links }: Data): JSX.Element[] => {
   return links.map((link) => (
     <NavLink link={link.link ?? "/"} name={link.name} key={link.name} />
   ));

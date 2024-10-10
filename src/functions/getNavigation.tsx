@@ -1,7 +1,9 @@
 import routes from "../config/routes";
 import NavigationLinks from "../types/navigationLinks";
 
-const getNavigation = (filter: (navigationLink: NavigationLinks) => boolean) =>
+const getNavigation = (
+  filter: (navigationLink: NavigationLinks) => boolean
+): NavigationLinks[] =>
   routes
     .filter((route) => {
       return route.navigation && filter(route.navigation);

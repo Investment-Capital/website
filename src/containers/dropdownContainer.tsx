@@ -3,7 +3,7 @@ type Data = {
   open: boolean;
 };
 
-const DropdownContainer = ({ children, open }: Data) => {
+const DropdownContainer = ({ children, open }: Data): JSX.Element => {
   return (
     <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
       <div

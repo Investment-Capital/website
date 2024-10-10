@@ -1,4 +1,4 @@
-const API = () => {
+const API = (): JSX.Element => {
   return <div></div>;
 };
 

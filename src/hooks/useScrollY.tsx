@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-const useScrollY = (threshold?: (scroll: number) => boolean) => {
+function useScrollY(threshold: (width: number) => boolean): boolean;
+function useScrollY(): number;
+
+function useScrollY(threshold?: (scroll: number) => boolean) {
   const [scrollData, setScrollData] = useState<number | boolean>(
     threshold ? threshold(window.scrollY) : window.scrollY
   );
@@ -15,6 +18,6 @@ const useScrollY = (threshold?: (scroll: number) => boolean) => {
   }, [threshold]);
 
   return scrollData;
-};
+}
 
 export default useScrollY;

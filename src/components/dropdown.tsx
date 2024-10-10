@@ -9,7 +9,7 @@ type Data = {
   open: boolean;
 };
 
-const Dropdown = ({ links, open }: Data) => {
+const Dropdown = ({ links, open }: Data): JSX.Element => {
   return (
     <DropdownContainer open={open}>
       {links.map((link, index) => (

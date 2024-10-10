@@ -5,7 +5,7 @@ type Data = {
   children: React.ReactNode;
 };
 
-const HomeWave = ({ children }: Data) => {
+const HomeWave = ({ children }: Data): JSX.Element => {
   return (
     <div style={{ fontSize: "0", textAlign: "center" }}>
       <StartingWave />

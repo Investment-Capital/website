@@ -2,7 +2,7 @@ import NavbarContainer from "../../containers/navbarContainer";
 import getNavigation from "../../functions/getNavigation";
 import NavbarContent from "./navbarContent";
 
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   return (
     <NavbarContainer>
       <NavbarContent

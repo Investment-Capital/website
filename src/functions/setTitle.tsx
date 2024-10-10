@@ -2,10 +2,8 @@ type Data = {
   text: string;
 };
 
-const setTitle = ({ text }: Data): null => {
+const setTitle = ({ text }: Data): void => {
   document.title = text;
-
-  return null;
 };
 
 export default setTitle;

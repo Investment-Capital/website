@@ -1,4 +1,4 @@
-const Lottery = () => {
+const Lottery = (): JSX.Element => {
   return <div></div>;
 };
 

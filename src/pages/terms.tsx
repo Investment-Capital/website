@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import terms from "../config/terms.md?raw";
 
-const Terms = () => {
+const Terms = (): JSX.Element => {
   return (
     <div style={{ color: "white", textAlign: "center", padding: "55px" }}>
       <ReactMarkdown children={terms} />

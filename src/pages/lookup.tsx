@@ -1,4 +1,4 @@
-const Lookup = () => {
+const Lookup = (): JSX.Element => {
   return <div></div>;
 };
 

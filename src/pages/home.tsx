@@ -13,7 +13,7 @@ import useFetchApi from "../hooks/useFetchApi";
 import ShadowButton from "../components/buttons/shadowButton";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const isMobile = useDeviceWidth((width) => width <= 800);
   const fetchApi = useFetchApi();
   const navigate = useNavigate();

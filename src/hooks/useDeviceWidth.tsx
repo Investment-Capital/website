@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-const useDeviceWidth = (threshold?: (width: number) => boolean) => {
+function useDeviceWidth(threshold: (width: number) => boolean): boolean;
+function useDeviceWidth(): number;
+
+function useDeviceWidth(threshold?: (width: number) => boolean) {
   const [widthData, setWidthData] = useState<number | boolean>(
     threshold ? threshold(window.innerWidth) : window.innerWidth
   );
@@ -17,6 +20,6 @@ const useDeviceWidth = (threshold?: (width: number) => boolean) => {
   }, [threshold]);
 
   return widthData;
-};
+}
 
 export default useDeviceWidth;
