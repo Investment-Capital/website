@@ -28,6 +28,7 @@ const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
         maxWidth: "425px",
         padding: "26px",
         gap: "6px",
+        zIndex: 2,
       }}
     >
       <Topography opacity={0.05} color="rgb(216, 140, 44)" />
