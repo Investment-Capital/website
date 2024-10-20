@@ -11,6 +11,7 @@ import Terms from "../pages/terms";
 import Route from "../types/route";
 import Login from "../pages/auth/login";
 import Logout from "../pages/auth/logout";
+import AccountProfile from "../pages/account/profile";
 
 const routes: Route[] = [
   {
@@ -95,6 +96,11 @@ const routes: Route[] = [
   {
     path: "/auth/logout",
     element: <Logout />,
+  },
+  {
+    path: "/account/profile",
+    element: <AccountProfile />,
+    authorized: true,
   },
   {
     path: "*",

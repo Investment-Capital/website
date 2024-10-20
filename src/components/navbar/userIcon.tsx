@@ -43,6 +43,7 @@ const UserIcon = (): JSX.Element => {
   ) : user ? (
     <img
       src={user.avatar}
+      onClick={() => navigate("/account/profile")}
       style={{
         backgroundColor: "rgb(80,80,80, 0.6)",
         width: "50px",
