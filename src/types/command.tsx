@@ -11,13 +11,15 @@ type Command = {
     | SlashCommandSubcommandBuilder
     | ContextMenuCommandBuilder
     | SlashCommandSubcommandsOnlyBuilder;
+
+  requiresAccount: boolean;
   category: string;
   disabled: boolean;
-  requiredPrestige: number;
-  global: boolean;
-  requiresAccount: boolean;
-  owner: boolean;
+  requiedPrestige: number;
   admin: boolean;
+  owner: boolean;
+
+  guilds?: string[];
 };
 
 export default Command;

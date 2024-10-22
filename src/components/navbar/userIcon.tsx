@@ -14,17 +14,9 @@ const UserIcon = (): JSX.Element => {
   const fetchApi = useFetchApi();
 
   useEffect(() => {
-    (async () => {
-      if (!authorization) return;
+    if (!authorization) return;
 
-      setUser(
-        await fetchApi("/account/user", {
-          headers: {
-            authorization,
-          },
-        })
-      );
-    })();
+    fetchApi("/account/user").then(setUser);
   }, [authorization]);
 
   return !authorization ? (

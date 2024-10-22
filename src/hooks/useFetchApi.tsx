@@ -5,13 +5,27 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 
 const useFetchApi = () => {
   const navigate = useNavigate();
-  const [_, setAuthorization] = useLocalStorage("authorization", null);
+  const [authorization, setAuthorization] = useLocalStorage<string | null>(
+    "authorization",
+    null
+  );
 
   return (path: string, requestData?: RequestInit) =>
-    fetchApi(getApiURL(path), requestData ?? {}, () => {
-      navigate("/auth/login");
-      setAuthorization(null);
-    });
+    fetchApi(
+      getApiURL(path),
+      {
+        ...requestData,
+        headers: {
+          ...requestData?.headers,
+          "content-type": "application/json",
+          ...(authorization && { authorization }),
+        },
+      },
+      () => {
+        navigate("/auth/login");
+        setAuthorization(null);
+      }
+    );
 };
 
 export default useFetchApi;
