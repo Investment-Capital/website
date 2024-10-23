@@ -32,8 +32,8 @@ const Home = (): JSX.Element => {
     <>
       <div
         style={{
-          paddingRight: isMobile ? "40px" : "55px",
-          paddingLeft: isMobile ? "40px" : "55px",
+          paddingRight: isMobile ? "30px" : "55px",
+          paddingLeft: isMobile ? "30px" : "55px",
           paddingTop: isMobile ? "25px" : "55px",
         }}
       >
@@ -118,8 +118,8 @@ const Home = (): JSX.Element => {
 
       <div
         style={{
-          paddingRight: isMobile ? "40px" : "55px",
-          paddingLeft: isMobile ? "40px" : "55px",
+          paddingRight: isMobile ? "30px" : "55px",
+          paddingLeft: isMobile ? "30px" : "55px",
         }}
       >
         <h1
@@ -173,8 +173,8 @@ const Home = (): JSX.Element => {
           display: "flex",
           flexDirection: "column",
           gap: "24px",
-          paddingRight: isMobile ? "40px" : "55px",
-          paddingLeft: isMobile ? "40px" : "55px",
+          paddingRight: isMobile ? "30px" : "55px",
+          paddingLeft: isMobile ? "30px" : "55px",
         }}
       >
         <h1 style={{ color: "white", textAlign: "center" }}>

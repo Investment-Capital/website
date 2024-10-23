@@ -3,7 +3,7 @@ import privacy from "../config/privacy.md?raw";
 
 const Privacy = (): JSX.Element => {
   return (
-    <div style={{ color: "white", textAlign: "center", padding: "55px" }}>
+    <div style={{ color: "white", textAlign: "center", padding: "30px" }}>
       <ReactMarkdown children={privacy} />
     </div>
   );

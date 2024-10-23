@@ -1,5 +1,15 @@
+import { useEffect, useState } from "react";
+import useFetchApi from "../hooks/useFetchApi";
+
 const API = (): JSX.Element => {
-  return <div></div>;
+  const fetchApi = useFetchApi();
+  const [routes, setRoutes] = useState(null);
+
+  useEffect(() => {
+    fetchApi("/routes").then(setRoutes);
+  }, []);
+
+  return <div>{JSON.stringify(routes)}</div>;
 };
 
 export default API;

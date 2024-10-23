@@ -15,8 +15,8 @@ const InfomationContainer = ({ children }: Data): JSX.Element => {
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-        paddingRight: isMobile ? "40px" : "55px",
-        paddingLeft: isMobile ? "40px" : "55px",
+        paddingRight: isMobile ? "30px" : "55px",
+        paddingLeft: isMobile ? "30px" : "55px",
         gap: "20px",
       }}
     >

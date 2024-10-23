@@ -11,7 +11,7 @@ const Login = (): JSX.Element => {
   const code = new URLSearchParams(location.search).get("code");
   const error = new URLSearchParams(location.search).get("error");
 
-  const [authorization, setAuthorization] = useLocalStorage(
+  const [authorization, setAuthorization] = useLocalStorage<string | null>(
     "authorization",
     null
   );
@@ -32,23 +32,21 @@ const Login = (): JSX.Element => {
       return;
     }
 
-    (async () => {
-      const loginData = await fetchApi("/auth/login", {
-        method: "POST",
-        body: JSON.stringify({
-          code,
-        }),
-      });
-
-      setAuthorization(loginData.authorization);
-
-      setUserData({
-        displayName: loginData.displayName,
-        username: loginData.username,
-        id: loginData.id,
-        avatar: loginData.avatar,
-      });
-    })();
+    fetchApi("/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        code,
+      }),
+    }).then(
+      (
+        result: SavedUser & {
+          authorization: string;
+        }
+      ) => {
+        setAuthorization(result.authorization);
+        setUserData(result);
+      }
+    );
   }, [location]);
 
   return userData && authorization ? (

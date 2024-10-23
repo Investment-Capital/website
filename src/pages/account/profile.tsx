@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import useFetchApi from "../../hooks/useFetchApi";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import Investor from "../../types/investor";
+import { useNavigate } from "react-router-dom";
 
 const AccountProfile = () => {
   const [data, setData] = useState<Investor | null>(null);
   const [authorization] = useLocalStorage("authorization", null);
+  const navigate = useNavigate();
   const fetchApi = useFetchApi();
 
   useEffect(() => {
@@ -33,6 +35,7 @@ const AccountProfile = () => {
             </p>
           );
         })}
+        <button onClick={() => navigate("/auth/logout")}>Logout</button>
       </div>
     )
   );

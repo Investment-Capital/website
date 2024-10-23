@@ -3,7 +3,7 @@ import terms from "../config/terms.md?raw";
 
 const Terms = (): JSX.Element => {
   return (
-    <div style={{ color: "white", textAlign: "center", padding: "55px" }}>
+    <div style={{ color: "white", textAlign: "center", padding: "30px" }}>
       <ReactMarkdown children={terms} />
     </div>
   );
