@@ -6,11 +6,12 @@ import {
 } from "discord.js";
 
 type Command = {
-  data:
+  data: Partial<
     | SlashCommandBuilder
     | SlashCommandSubcommandBuilder
     | ContextMenuCommandBuilder
-    | SlashCommandSubcommandsOnlyBuilder;
+    | SlashCommandSubcommandsOnlyBuilder
+  >;
 
   requiresAccount: boolean;
   category: string;

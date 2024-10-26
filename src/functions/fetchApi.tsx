@@ -1,9 +1,9 @@
 const fetchApi = async (
-  path: string,
+  url: string,
   requestData: RequestInit,
   onUnauthorized: () => any
 ) => {
-  const data = await fetch(path, requestData);
+  const data = await fetch(url, requestData);
   const json = await data.json();
 
   if ("error" in json) {
