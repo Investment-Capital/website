@@ -4,6 +4,7 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 import Investor from "../../types/investor";
 import { useNavigate } from "react-router-dom";
 import useWebsocketApi from "../../hooks/useWebsocketApi";
+import NumberFlow from "@number-flow/react";
 
 const AccountProfile = () => {
   const [data, setData] = useState<Investor | null>(null);
@@ -41,7 +42,8 @@ const AccountProfile = () => {
 
           return (
             <p key={key}>
-              {key}: {data}
+              {key}:{" "}
+              {typeof data == "number" ? <NumberFlow value={data} /> : data}
             </p>
           );
         })}

@@ -8,8 +8,9 @@ const useWebsocketApi = () => {
   return (path: string) =>
     websocketApi(
       getApiURL(path, true) +
-        (path.includes("?") ? "&" : "?") +
-        `authorization=${authorization}`
+        (authorization
+          ? (path.includes("?") ? "&" : "?") + `authorization=${authorization}`
+          : "")
     );
 };
 

@@ -10,7 +10,9 @@ const getNavigation = (
     })
     .map((route) => {
       if (route.navigation && !route.navigation?.link)
-        route.navigation.link = route.path;
+        route.navigation.link = Array.isArray(route.paths)
+          ? route.paths[0]
+          : route.paths;
 
       return route.navigation;
     }) as NavigationLinks[];

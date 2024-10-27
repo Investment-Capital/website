@@ -9,7 +9,7 @@ const API = (): JSX.Element => {
     fetchApi("/routes").then(setRoutes);
   }, []);
 
-  return <div>{JSON.stringify(routes)}</div>;
+  return <div style={{ color: "white" }}>{JSON.stringify(routes)}</div>;
 };
 
 export default API;

@@ -11,11 +11,15 @@ const App = (): JSX.Element => {
     <div>
       <Navbar />
       <Routes>
-        {routes.map((route, index) => {
-          return (
+        {routes.flatMap((route, index) => {
+          const paths = Array.isArray(route.paths)
+            ? route.paths
+            : [route.paths];
+
+          return paths.map((path) => (
             <Route
               key={index}
-              path={route.path}
+              path={path}
               element={
                 route.authorized && !authorization ? (
                   <LoginMenu />
@@ -24,7 +28,7 @@ const App = (): JSX.Element => {
                 )
               }
             />
-          );
+          ));
         })}
       </Routes>
     </div>

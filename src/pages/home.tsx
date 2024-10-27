@@ -12,11 +12,15 @@ import useDeviceWidth from "../hooks/useDeviceWidth";
 import useFetchApi from "../hooks/useFetchApi";
 import ShadowButton from "../components/buttons/shadowButton";
 import { useNavigate } from "react-router-dom";
+import botInvite from "../config/botInvite";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 const Home = (): JSX.Element => {
   const isMobile = useDeviceWidth((width) => width <= 800);
   const fetchApi = useFetchApi();
   const navigate = useNavigate();
+
+  const [authorization] = useLocalStorage("authorization");
 
   const [statistics, setStatistics] = useState<StatisicsData>({
     investors: null,
@@ -25,7 +29,9 @@ const Home = (): JSX.Element => {
   });
 
   useEffect(() => {
-    fetchApi("/statistics").then(setStatistics);
+    const getStatistics = () => fetchApi("/statistics").then(setStatistics);
+
+    getStatistics().then(() => setInterval(getStatistics, 10_000));
   }, []);
 
   return (
@@ -44,15 +50,14 @@ const Home = (): JSX.Element => {
               color: "white",
             }}
           >
-            It's time to add{" "}
+            It's time to play{" "}
             <span
               style={{
                 color: "#d88c2c",
               }}
             >
               Investment Capital
-            </span>{" "}
-            to your server.
+            </span>
           </h1>
 
           <h4
@@ -63,9 +68,9 @@ const Home = (): JSX.Element => {
             }}
           >
             Investment Capital is a economy system ready to skill up and boost
-            up your Discord server.
+            up your Discord server and online experience.
             <br />
-            Features investment aspects including the stock market.
+            Play using the discord bot or on this website!
           </h4>
         </div>
 
@@ -80,13 +85,17 @@ const Home = (): JSX.Element => {
           <ShadowButton
             color="#d88c2c"
             text="Add To Server"
-            onClick={() => redirect(import.meta.env.VITE_BOT_INVITE)}
+            onClick={() => redirect(botInvite)}
           />
 
           <ShadowButton
             color="#2c2f33"
-            text="Join Support Server"
-            onClick={() => redirect(import.meta.env.VITE_SUPPORT_SERVER)}
+            text={authorization ? "Join The Support Server" : "Login"}
+            onClick={() =>
+              authorization
+                ? redirect(import.meta.env.VITE_SUPPORT_SERVER)
+                : navigate("/auth/login")
+            }
           />
         </div>
       </div>
@@ -158,12 +167,16 @@ const Home = (): JSX.Element => {
           <ShadowButton
             color="#d88c2c"
             text="Add to server"
-            onClick={() => redirect(import.meta.env.VITE_BOT_INVITE)}
+            onClick={() => redirect(botInvite)}
           />
           <ShadowButton
             color="#2c2f33"
-            text="Login"
-            onClick={() => navigate("/auth/login")}
+            text={authorization ? "Join The Support Server" : "Login"}
+            onClick={() =>
+              authorization
+                ? redirect(import.meta.env.VITE_SUPPORT_SERVER)
+                : navigate("/auth/login")
+            }
           />
         </div>
       </div>

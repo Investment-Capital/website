@@ -1,6 +1,6 @@
-import EndWave from "../public/footerWave.tsx";
-import github from "../public/github.png";
-import discord from "../public/discord.png";
+import EndWave from "../assets/footerWave.tsx";
+import github from "../assets/github.png";
+import discord from "../assets/discord.png";
 import Icon from "./icon.tsx";
 
 const Footer = (): JSX.Element => {

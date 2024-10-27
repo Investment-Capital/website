@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Poppins";
   font-weight: 400;
-  src: url(/src/public/poppins/400.woff2) format("woff2");
+  src: url(/src/assets/poppins/400.woff2) format("woff2");
 }
 
 @font-face {
   font-family: "Poppins";
   font-weight: 700;
-  src: url(/src/public/poppins/700.woff2) format("woff2");
+  src: url(/src/assets/poppins/700.woff2) format("woff2");
 }
 
 ::-webkit-scrollbar {

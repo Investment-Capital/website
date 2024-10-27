@@ -34,8 +34,8 @@ const StartingWave = () => (
     </style>
     <defs>
       <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
-        <stop offset="5%" stopColor="#d88c2c" />
-        <stop offset="95%" stopColor="#fcb900" />
+        <stop offset="0%" stopColor="#d88c2c" />
+        <stop offset="100%" stopColor="#fcb900" />
       </linearGradient>
     </defs>
     <path

@@ -47,8 +47,8 @@ const EndingWave = () => (
     </style>
     <defs>
       <linearGradient id="gradient2" x1="0%" y1="50%" x2="100%" y2="50%">
-        <stop offset="5%" stopColor="#fcb900" />
-        <stop offset="95%" stopColor="#d88c2c" />
+        <stop offset="0%" stopColor="#fcb900" />
+        <stop offset="100%" stopColor="#d88c2c" />
       </linearGradient>
     </defs>
     <path

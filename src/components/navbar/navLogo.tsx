@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import icon from "../../public/icon.webp";
+import icon from "../../assets/icon.webp";
 import useDeviceWidth from "../../hooks/useDeviceWidth";
 
 const NavLogo = (): JSX.Element => {

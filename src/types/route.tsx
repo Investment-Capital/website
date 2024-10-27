@@ -2,7 +2,7 @@ import NavigationLinks from "./navigationLinks";
 
 type Route = {
   navigation?: NavigationLinks;
-  path: string;
+  paths: string | string[];
   authorized?: boolean;
   element: JSX.Element;
 };

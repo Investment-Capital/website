@@ -1,5 +1,5 @@
-import EndingWave from "../public/endingWave";
-import StartingWave from "../public/startingWave";
+import EndingWave from "../assets/endingWave";
+import StartingWave from "../assets/startingWave";
 
 type Data = {
   children: React.ReactNode;

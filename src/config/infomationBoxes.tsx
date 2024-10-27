@@ -4,7 +4,7 @@ const infomationBoxes: InfomationData[] = [
   {
     text: "Build a portfolio with stocks and other investments",
     title: "Portfolio",
-    link: "/lookup/portfolio",
+    link: "/lookup/investors",
   },
   {
     text: "Buy stocks, housing, shops and machinary from the markets. The prices fluctuate every once in a while. History can be seen on the charts",

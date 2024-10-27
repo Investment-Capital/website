@@ -1,5 +1,5 @@
 const Lottery = (): JSX.Element => {
-  return <div></div>;
+  return <h1>Coming Soon</h1>;
 };
 
 export default Lottery;

@@ -1,3 +1,4 @@
+import NumberFlow from "@number-flow/react";
 import Topography from "./topography";
 
 type Data = {
@@ -39,7 +40,7 @@ const Statisic = ({ title, statisic }: Data): JSX.Element => {
           {title ?? "???"}
         </h3>
         <h5 style={{ fontSize: "35px", color: "#d88c2c" }}>
-          {statisic ?? "???"}
+          {statisic ? <NumberFlow value={statisic} /> : "???"}
         </h5>
       </div>
     </div>

@@ -12,10 +12,11 @@ import Route from "../types/route";
 import Login from "../pages/auth/login";
 import Logout from "../pages/auth/logout";
 import AccountProfile from "../pages/account/profile";
+import Investor from "../pages/investor";
 
 const routes: Route[] = [
   {
-    path: "/",
+    paths: "/",
     element: <Home />,
     navigation: {
       name: "Home",
@@ -23,7 +24,7 @@ const routes: Route[] = [
     },
   },
   {
-    path: "/commands",
+    paths: "/commands",
     element: <Commands />,
     navigation: {
       name: "Commands",
@@ -31,16 +32,16 @@ const routes: Route[] = [
     },
   },
   {
-    path: "/lookup/:type",
+    paths: ["/lookup/investors"],
     element: <Lookup />,
     navigation: {
       name: "Lookup",
-      link: "/lookup/users",
+      link: "/lookup/investors",
       right: false,
     },
   },
   {
-    path: "/market/:type",
+    paths: ["/market/stocks"],
     element: <Market />,
     navigation: {
       name: "Markets",
@@ -49,7 +50,7 @@ const routes: Route[] = [
     },
   },
   {
-    path: "/lottery",
+    paths: "/lottery",
     element: <Lottery />,
     navigation: {
       name: "Lottery",
@@ -57,7 +58,7 @@ const routes: Route[] = [
     },
   },
   {
-    path: "/leaderboard/:type",
+    paths: "/leaderboard/:type",
     element: <Leaderboard />,
     navigation: {
       name: "Leaderboards",
@@ -66,7 +67,7 @@ const routes: Route[] = [
     },
   },
   {
-    path: "/api",
+    paths: "/api",
     element: <API />,
     navigation: {
       name: "API",
@@ -74,7 +75,7 @@ const routes: Route[] = [
     },
   },
   {
-    path: "/terms",
+    paths: "/terms",
     element: <Terms />,
     navigation: {
       name: "Terms Of Service",
@@ -82,7 +83,7 @@ const routes: Route[] = [
     },
   },
   {
-    path: "/privacy",
+    paths: "/privacy",
     element: <Privacy />,
     navigation: {
       name: "Privacy Policy",
@@ -90,20 +91,24 @@ const routes: Route[] = [
     },
   },
   {
-    path: "/auth/login",
+    paths: "/auth/login",
     element: <Login />,
   },
   {
-    path: "/auth/logout",
+    paths: "/auth/logout",
     element: <Logout />,
   },
   {
-    path: "/account/profile",
+    paths: "/account/profile",
     element: <AccountProfile />,
     authorized: true,
   },
   {
-    path: "*",
+    paths: "/investor/:id",
+    element: <Investor />,
+  },
+  {
+    paths: "*",
     element: <Navigate to={"/"} />,
   },
 ];
