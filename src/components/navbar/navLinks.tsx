@@ -2,7 +2,7 @@ import NavigationLinks from "../../types/navigationLinks";
 import NavLink from "./navLink";
 
 type Data = {
-  links: NavigationLinks[];
+  links: Omit<NavigationLinks, "right">[];
 };
 
 const NavLinks = ({ links }: Data): JSX.Element[] => {

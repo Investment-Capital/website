@@ -193,6 +193,7 @@ const Home = (): JSX.Element => {
         <h1 style={{ color: "white", textAlign: "center" }}>
           We're growing, and so can your server!
         </h1>
+
         <StatisticContainer>
           <Statisic title="Investors" statisic={statistics.investors} />
           <Statisic title="Businesses" statisic={statistics.businesses} />

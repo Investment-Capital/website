@@ -10,7 +10,7 @@ const NavLogo = (): JSX.Element => {
     <img
       alt="Investment Capital Logo"
       src={icon}
-      onClick={() => location.pathname !== "/" && navigate("/")}
+      onClick={() => navigate("/")}
       style={{
         borderRadius: "50%",
         cursor: "pointer",

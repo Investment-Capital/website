@@ -1,5 +1,5 @@
 import DropdownContainer from "../containers/dropdownContainer";
-import NavLink from "./navbar/navLink";
+import NavLinks from "./navbar/navLinks";
 
 type Data = {
   links: {
@@ -12,9 +12,7 @@ type Data = {
 const Dropdown = ({ links, open }: Data): JSX.Element => {
   return (
     <DropdownContainer open={open}>
-      {links.map((link, index) => (
-        <NavLink key={index} name={link.name} link={link.link} />
-      ))}
+      <NavLinks links={links} />
     </DropdownContainer>
   );
 };

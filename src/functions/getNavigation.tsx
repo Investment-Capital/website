@@ -3,7 +3,7 @@ import NavigationLinks from "../types/navigationLinks";
 
 const getNavigation = (
   filter: (navigationLink: NavigationLinks) => boolean
-): NavigationLinks[] =>
+): Required<NavigationLinks>[] =>
   routes
     .filter((route) => {
       return route.navigation && filter(route.navigation);
@@ -15,6 +15,6 @@ const getNavigation = (
           : route.paths;
 
       return route.navigation;
-    }) as NavigationLinks[];
+    }) as Required<NavigationLinks>[];
 
 export default getNavigation;

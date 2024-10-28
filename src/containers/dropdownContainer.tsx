@@ -17,7 +17,7 @@ const DropdownContainer = ({ children, open }: Data): JSX.Element => {
           transform: open ? "translateY(0)" : "translateY(-10px)",
           transition:
             "opacity 0.1s ease-in, transform 0.15s ease-in, max-height 0.25s ease-in",
-          backgroundColor: `rgba(0,0,0, 0.9)`,
+          backgroundColor: `rgba(0,0,0, 0.85)`,
           backdropFilter: "blur(6px)",
           overflow: "hidden",
           padding: "16px",

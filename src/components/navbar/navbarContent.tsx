@@ -9,8 +9,8 @@ import NavigationLinks from "../../types/navigationLinks";
 import Dropdown from "../dropdown";
 
 type Data = {
-  leftLinks: NavigationLinks[];
-  rightLinks: NavigationLinks[];
+  leftLinks: Required<NavigationLinks>[];
+  rightLinks: Required<NavigationLinks>[];
 };
 
 const NavbarContent = ({ leftLinks, rightLinks }: Data) => {
@@ -36,7 +36,7 @@ const NavbarContent = ({ leftLinks, rightLinks }: Data) => {
             />
 
             <Dropdown
-              links={[...leftLinks, ...rightLinks] as any}
+              links={[...leftLinks, ...rightLinks]}
               open={mobileDropdownOpen}
             />
           </div>
