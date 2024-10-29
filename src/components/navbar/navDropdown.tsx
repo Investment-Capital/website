@@ -1,5 +1,5 @@
-import DropdownContainer from "../containers/dropdownContainer";
-import NavLinks from "./navbar/navLinks";
+import DropdownContainer from "../../containers/dropdownContainer";
+import NavLinks from "./navLinks";
 
 type Data = {
   links: {
@@ -9,7 +9,7 @@ type Data = {
   open: boolean;
 };
 
-const Dropdown = ({ links, open }: Data): JSX.Element => {
+const NavDropdown = ({ links, open }: Data): JSX.Element => {
   return (
     <DropdownContainer open={open}>
       <NavLinks links={links} />
@@ -17,4 +17,4 @@ const Dropdown = ({ links, open }: Data): JSX.Element => {
   );
 };
 
-export default Dropdown;
+export default NavDropdown;

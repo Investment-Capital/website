@@ -6,7 +6,7 @@ import NavLogo from "./navLogo";
 import UserIcon from "./userIcon";
 import { useEffect, useState } from "react";
 import NavigationLinks from "../../types/navigationLinks";
-import Dropdown from "../dropdown";
+import NavDropdown from "./navDropdown";
 
 type Data = {
   leftLinks: Required<NavigationLinks>[];
@@ -35,7 +35,7 @@ const NavbarContent = ({ leftLinks, rightLinks }: Data) => {
               onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
             />
 
-            <Dropdown
+            <NavDropdown
               links={[...leftLinks, ...rightLinks]}
               open={mobileDropdownOpen}
             />
