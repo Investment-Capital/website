@@ -1,4 +1,6 @@
 import { Line, LineChart, Tooltip, XAxis, YAxis, Legend } from "recharts";
+import findClosestValue from "../functions/findClosestValue";
+import NumberFlow from "@number-flow/react";
 
 type Data = {
   width: number;
@@ -48,6 +50,7 @@ const Chart = ({ height, width, data }: Data) => {
       <Tooltip
         content={({ payload }) => {
           if (payload?.length == 0 || !payload) return;
+          const payloadDate = new Date(payload[0].payload.date);
 
           return (
             <div
@@ -61,24 +64,33 @@ const Chart = ({ height, width, data }: Data) => {
               }}
             >
               <p>
-                {new Date(payload[0].payload.date)
-                  .toLocaleString()
-                  .split(", ")
-                  .map((data, index) => {
-                    if (index == 0)
-                      return new Intl.DateTimeFormat(navigator.language, {
-                        day: "2-digit",
-                        month: "2-digit",
-                        year: "2-digit",
-                      }).format(new Date(payload[0].payload.date));
-                    return data;
-                  })
-                  .join(", ")}
+                {new Intl.DateTimeFormat(navigator.language, {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "2-digit",
+                }).format(payloadDate) +
+                  ", " +
+                  new Date(payloadDate).toLocaleString().split(", ")[1]}
               </p>
-              {payload.map((data) => {
+
+              {payload.map((payloadData) => {
+                const savedPayloadData = data[payloadData.name as string];
+
                 return (
-                  <p>
-                    {data.name}: {data.payload.value}
+                  <p key={payloadData.name}>
+                    {payloadData.name}:{" "}
+                    <NumberFlow
+                      value={
+                        savedPayloadData.find(
+                          (payload) =>
+                            payload.date ==
+                            findClosestValue(
+                              payloadData.payload.date,
+                              savedPayloadData.map((data) => data.date)
+                            )
+                        )?.value
+                      }
+                    />
                   </p>
                 );
               })}
@@ -95,7 +107,7 @@ const Chart = ({ height, width, data }: Data) => {
           data={dataset}
           type="stepAfter"
           dot={{ r: 2 }}
-          activeDot={{ r: 3 }}
+          activeDot={{ r: 0 }}
           strokeWidth={2}
           name={key}
           stroke={`#${Math.floor(Math.random() * 16777215).toString(16)}`}
