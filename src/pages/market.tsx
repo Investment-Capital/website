@@ -41,7 +41,7 @@ const Market = (): JSX.Element => {
   return (
     <div style={{ color: "white" }}>
       <Chart
-        width={1600}
+        width={1300}
         height={600}
         data={Object.entries(marketData.stocks ?? []).reduce(
           (prev, current) => {

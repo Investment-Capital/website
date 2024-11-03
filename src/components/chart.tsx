@@ -15,8 +15,6 @@ type Data = {
 };
 
 const Chart = ({ height, width, data }: Data) => {
-  const allDataPoints = Object.values(data).flat();
-
   return (
     <LineChart
       margin={{
@@ -25,7 +23,6 @@ const Chart = ({ height, width, data }: Data) => {
       }}
       height={height}
       width={width}
-      data={allDataPoints}
     >
       <YAxis
         dataKey="value"
@@ -75,22 +72,20 @@ const Chart = ({ height, width, data }: Data) => {
 
               {payload.map((payloadData) => {
                 const savedPayloadData = data[payloadData.name as string];
+                const price = savedPayloadData.find(
+                  (savedPayload) =>
+                    savedPayload.date ==
+                    findClosestValue(
+                      payloadDate.getTime(),
+                      savedPayloadData
+                        .filter((data) => data.date <= payloadDate.getTime())
+                        .map((data) => data.date)
+                    )
+                )?.value;
 
                 return (
                   <p key={payloadData.name}>
-                    {payloadData.name}:{" "}
-                    <NumberFlow
-                      value={
-                        savedPayloadData.find(
-                          (payload) =>
-                            payload.date ==
-                            findClosestValue(
-                              payloadData.payload.date,
-                              savedPayloadData.map((data) => data.date)
-                            )
-                        )?.value
-                      }
-                    />
+                    {payloadData.name}: <NumberFlow value={price} />
                   </p>
                 );
               })}
