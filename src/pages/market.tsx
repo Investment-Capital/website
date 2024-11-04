@@ -6,9 +6,9 @@ import Markets from "../types/markets/markets";
 import Chart from "../components/chart";
 
 const Market = (): JSX.Element => {
+  const [marketData, setMarketData] = useState<Partial<Markets>>({});
   const fetchApi = useFetchApi();
   const websocketApi = useWebsocketApi();
-  const [marketData, setMarketData] = useState<Partial<Markets>>({});
   const location = useLocation();
   const marketType: keyof Markets = location.pathname.split("/")[2] as any;
 
@@ -27,6 +27,7 @@ const Market = (): JSX.Element => {
 
     websocket.addEventListener("message", (event) => {
       const json = JSON.parse(event.data);
+
       setMarketData((value) => {
         const newData = { ...value };
         newData[json.market as keyof Markets] = json.data;

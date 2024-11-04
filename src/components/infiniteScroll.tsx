@@ -8,7 +8,7 @@ type Data = {
   hasMore: boolean;
 };
 
-const InfinateScroll = ({ children, page, pageSize, hasMore, next }: Data) => {
+const InfiniteScroll = ({ children, page, pageSize, hasMore, next }: Data) => {
   return (
     <InfiniteScrollComponent
       next={next}
@@ -16,9 +16,9 @@ const InfinateScroll = ({ children, page, pageSize, hasMore, next }: Data) => {
       hasMore={hasMore}
       loader=""
     >
-      {children.slice(pageSize * page - 1)}
+      {children.slice(0, pageSize * page)}
     </InfiniteScrollComponent>
   );
 };
 
-export default InfinateScroll;
+export default InfiniteScroll;

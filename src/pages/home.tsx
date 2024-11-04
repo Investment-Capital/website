@@ -30,8 +30,11 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     const getStatistics = () => fetchApi("/statistics").then(setStatistics);
+    getStatistics();
 
-    getStatistics().then(() => setInterval(getStatistics, 10_000));
+    const interval = setInterval(getStatistics, 10_000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
