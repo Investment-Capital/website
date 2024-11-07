@@ -13,6 +13,7 @@ import Login from "../pages/auth/login";
 import Logout from "../pages/auth/logout";
 import AccountProfile from "../pages/account/profile";
 import Investor from "../pages/investor";
+import leaderboards from "./leaderboards";
 
 const routes: Route[] = [
   {
@@ -58,11 +59,13 @@ const routes: Route[] = [
     },
   },
   {
-    paths: "/leaderboard/:type",
+    paths: Object.entries(leaderboards).flatMap(([type, leaderboards]) =>
+      leaderboards.map((value) => `/leaderboard/${type}/${value}`)
+    ),
     element: <Leaderboard />,
     navigation: {
       name: "Leaderboards",
-      link: "/leaderboard/cash",
+      link: "/leaderboard/investors/cash",
       right: false,
     },
   },

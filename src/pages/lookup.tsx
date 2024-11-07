@@ -16,7 +16,7 @@ const Lookup = (): JSX.Element => {
 
   const [page, setPage] = useState(1);
   const [more, setMore] = useState(true);
-  const [users, setUsers] = useState<SavedUser[] | undefined>();
+  const [users, setUsers] = useState<SavedUser[]>();
 
   useEffect(() => {
     setUsers(undefined);

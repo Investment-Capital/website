@@ -23,7 +23,22 @@ const Investor = (): JSX.Element => {
     return () => websocket.close();
   }, [location]);
 
-  return <div style={{ color: "white" }}>{JSON.stringify(investor)}</div>;
+  return investor ? (
+    <div style={{ color: "white" }}>
+      <h1>
+        {investor?.user.username} ({investor?.user.displayName})
+      </h1>
+      <img
+        style={{ width: "125px", height: "125px" }}
+        src={investor?.user.avatar}
+      />
+      <p>Cash: {investor?.cash}</p>
+      <p>Created: {investor?.created}</p>
+      <p>Prestige: {investor?.prestige}</p>
+    </div>
+  ) : (
+    <div />
+  );
 };
 
 export default Investor;
