@@ -2,7 +2,7 @@ import InfomationData from "../types/infomationData";
 
 const infomationBoxes: InfomationData[] = [
   {
-    text: "Build a portfolio with stocks and other investments",
+    text: "Build a portfolio with stocks and other investments to become a rich entrepreneur and climb the leaderboards to the top!",
     title: "Portfolio",
     link: "/lookup/investors",
   },

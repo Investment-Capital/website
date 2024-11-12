@@ -72,7 +72,7 @@ const Chart = ({ height, width, data }: Data) => {
 
               {payload.map((payloadData) => {
                 const savedPayloadData = data[payloadData.name as string];
-                const price = savedPayloadData.find(
+                const value = savedPayloadData.find(
                   (savedPayload) =>
                     savedPayload.date ==
                     findClosestValue(
@@ -83,9 +83,11 @@ const Chart = ({ height, width, data }: Data) => {
                     )
                 )?.value;
 
+                if (!value) return;
+
                 return (
                   <p key={payloadData.name}>
-                    {payloadData.name}: <NumberFlow value={price} />
+                    {payloadData.name}: <NumberFlow value={value} />
                   </p>
                 );
               })}
