@@ -1,6 +1,6 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import Button from "../buttons/button";
 import useFetchApi from "../../hooks/useFetchApi";
 import SavedUser from "../../types/savedUser";
@@ -35,7 +35,7 @@ const UserIcon = (): JSX.Element => {
   ) : user ? (
     <img
       src={user.avatar}
-      onClick={() => navigate("/account/profile")}
+      onClick={() => navigate("/account/portfolio")}
       style={{
         backgroundColor: "rgb(80,80,80, 0.6)",
         width: "50px",

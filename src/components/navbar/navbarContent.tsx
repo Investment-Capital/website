@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 import useDeviceWidth from "../../hooks/useDeviceWidth";
 import MenuIcon from "./menuIcon";
 import NavLinks from "./navLinks";
@@ -28,19 +28,17 @@ const NavbarContent = ({ leftLinks, rightLinks }: Data) => {
       </div>
 
       {mobile && (
-        <>
-          <div>
-            <MenuIcon
-              open={mobileDropdownOpen}
-              onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-            />
+        <div>
+          <MenuIcon
+            open={mobileDropdownOpen}
+            onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+          />
 
-            <NavDropdown
-              links={[...leftLinks, ...rightLinks]}
-              open={mobileDropdownOpen}
-            />
-          </div>
-        </>
+          <NavDropdown
+            links={[...leftLinks, ...rightLinks]}
+            open={mobileDropdownOpen}
+          />
+        </div>
       )}
 
       <div style={{ display: "flex", alignItems: "center" }}>

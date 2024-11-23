@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router";
 import LeaderboardType from "../types/leaderboard";
 import SavedUser from "../types/savedUser";
 import useFetchApi from "../hooks/useFetchApi";

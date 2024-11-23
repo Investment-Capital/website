@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router";
 import API from "../pages/api";
 import Commands from "../pages/commands";
 import Home from "../pages/home";
@@ -11,9 +11,9 @@ import Terms from "../pages/terms";
 import Route from "../types/route";
 import Login from "../pages/auth/login";
 import Logout from "../pages/auth/logout";
-import AccountProfile from "../pages/account/profile";
 import Investor from "../pages/investor";
 import leaderboards from "./leaderboards";
+import AccountPortfolio from "../pages/account/portfolio";
 
 const routes: Route[] = [
   {
@@ -102,8 +102,8 @@ const routes: Route[] = [
     element: <Logout />,
   },
   {
-    paths: "/account/profile",
-    element: <AccountProfile />,
+    paths: "/account/portfolio",
+    element: <AccountPortfolio />,
     authorized: true,
   },
   {

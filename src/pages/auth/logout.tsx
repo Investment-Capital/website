@@ -1,6 +1,6 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const Logout = (): JSX.Element => {
   const [_, setAuthorization] = useLocalStorage("authorization", null);

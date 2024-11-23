@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "./buttons/button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import InfomationData from "../types/infomationData";
 import Topography from "./topography";
 

@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router";
 import useFetchApi from "../hooks/useFetchApi";
 import useWebsocketApi from "../hooks/useWebsocketApi";
 import { useEffect, useState } from "react";

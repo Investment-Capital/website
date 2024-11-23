@@ -1,6 +1,5 @@
 import { Line, LineChart, Tooltip, XAxis, YAxis, Legend } from "recharts";
 import findClosestValue from "../functions/findClosestValue";
-import NumberFlow from "@number-flow/react";
 
 type Data = {
   width: number;
@@ -87,7 +86,7 @@ const Chart = ({ height, width, data }: Data) => {
 
                 return (
                   <p key={payloadData.name}>
-                    {payloadData.name}: <NumberFlow value={value} />
+                    {payloadData.name}: {value}
                   </p>
                 );
               })}

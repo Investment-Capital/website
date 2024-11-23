@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const LoginMenu = () => {
   const navigate = useNavigate();

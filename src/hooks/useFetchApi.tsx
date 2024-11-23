@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import fetchApi from "../functions/fetchApi";
 import getApiURL from "../functions/getApiURL";
 import { useLocalStorage } from "@uidotdev/usehooks";

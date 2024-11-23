@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router";
 import Navbar from "./components/navbar/navbar";
 import routes from "./config/routes";
 import { useLocalStorage } from "@uidotdev/usehooks";

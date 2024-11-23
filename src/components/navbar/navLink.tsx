@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import NavigationLinks from "../../types/navigationLinks";
 
 type Data = Required<Omit<NavigationLinks, "right">>;

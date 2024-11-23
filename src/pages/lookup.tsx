@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router";
 import { useEffect, useState } from "react";
 import SavedUser from "../types/savedUser";
 import useFetchApi from "../hooks/useFetchApi";

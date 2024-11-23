@@ -11,7 +11,7 @@ import redirect from "../functions/redirect";
 import useDeviceWidth from "../hooks/useDeviceWidth";
 import useFetchApi from "../hooks/useFetchApi";
 import ShadowButton from "../components/buttons/shadowButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import botInvite from "../config/botInvite";
 import { useLocalStorage } from "@uidotdev/usehooks";
 
