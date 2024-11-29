@@ -14,6 +14,7 @@ import Logout from "../pages/auth/logout";
 import Investor from "../pages/investor";
 import leaderboards from "./leaderboards";
 import AccountPortfolio from "../pages/account/portfolio";
+import AdminPanel from "../pages/admin/panel";
 
 const routes: Route[] = [
   {
@@ -109,6 +110,11 @@ const routes: Route[] = [
   {
     paths: "/investor/:id",
     element: <Investor />,
+  },
+  {
+    paths: "/admin/panel",
+    element: <AdminPanel />,
+    admin: true,
   },
   {
     paths: "*",

@@ -5,6 +5,7 @@ import Investor from "../../types/investor";
 import { useNavigate } from "react-router";
 import useWebsocketApi from "../../hooks/useWebsocketApi";
 import NumberFlow from "@number-flow/react";
+import hasPermissions from "../../functions/hasPermissions";
 
 const AccountPortfolio = () => {
   const [data, setData] = useState<Investor | null>(null);
@@ -48,6 +49,9 @@ const AccountPortfolio = () => {
           );
         })}
         <button onClick={() => navigate("/auth/logout")}>Logout</button>
+        {hasPermissions("admin", data.permissions) && (
+          <button onClick={() => navigate("/admin/panel")}>Admin Panel</button>
+        )}
       </div>
     )
   );
