@@ -31,7 +31,7 @@ const App = (): JSX.Element => {
                     permission={route.owner ? "owner" : "admin"}
                   />
                 ) : (
-                  route.element
+                  <route.element />
                 )
               }
             />

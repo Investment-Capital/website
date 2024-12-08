@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import useFetchApi from "../hooks/useFetchApi";
 import Permissions from "../types/permissions";
 import hasPermissions from "../functions/hasPermissions";
+import PermissionPageProps from "../types/permissionPageProps";
 
 type Data = {
-  element: JSX.Element;
+  element: (props: PermissionPageProps) => React.ReactNode;
   permission: keyof Permissions;
 };
 
-const PermissionsOnlyPage = ({ permission, element }: Data) => {
+const PermissionsOnlyPage = (props: Data) => {
   const fetchApi = useFetchApi();
   const [permissions, setPermissions] = useState<Permissions>();
 
@@ -17,11 +18,11 @@ const PermissionsOnlyPage = ({ permission, element }: Data) => {
   }, []);
 
   return !permissions ? (
-    <div>Loading...</div>
-  ) : !hasPermissions(permission, permissions) ? (
+    <props.element permissions={null} loading />
+  ) : !hasPermissions(props.permission, permissions) ? (
     "Invalid Permissions"
   ) : (
-    element
+    <props.element permissions={permissions} loading={false} />
   );
 };
 

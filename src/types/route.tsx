@@ -5,7 +5,7 @@ type Route = {
   navigation?: NavigationLinks;
   paths: string | string[];
   authorized?: boolean;
-  element: JSX.Element;
+  element: (...props: any) => React.ReactNode;
 } & {
   [_ in keyof Permissions]?: boolean;
 };
