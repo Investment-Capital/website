@@ -4,7 +4,7 @@ import NavigationLinks from "../../types/navigationLinks";
 
 type Data = Required<Omit<NavigationLinks, "right">>;
 
-const NavLink = ({ name, link }: Data): JSX.Element => {
+const NavLink = ({ name, link }: Data): React.ReactNode => {
   const [hovered, setHovered] = useState<boolean>(false);
   const navigate = useNavigate();
 

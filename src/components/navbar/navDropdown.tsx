@@ -9,7 +9,7 @@ type Data = {
   open: boolean;
 };
 
-const NavDropdown = ({ links, open }: Data): JSX.Element => {
+const NavDropdown = ({ links, open }: Data): React.ReactNode => {
   return (
     <DropdownContainer open={open}>
       <NavLinks links={links} />

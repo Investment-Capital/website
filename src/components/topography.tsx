@@ -3,7 +3,7 @@ type Data = {
   opacity?: number;
 };
 
-const Topography = ({ color = "#000", opacity = 1 }: Data): JSX.Element => {
+const Topography = ({ color = "#000", opacity = 1 }: Data): React.ReactNode => {
   return (
     <div
       style={{

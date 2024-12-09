@@ -6,7 +6,7 @@ type Data = {
   statisic: number | null;
 };
 
-const Statisic = ({ title, statisic }: Data): JSX.Element => {
+const Statisic = ({ title, statisic }: Data): React.ReactNode => {
   return (
     <div
       style={{

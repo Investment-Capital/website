@@ -3,7 +3,7 @@ import github from "../assets/github.png";
 import discord from "../assets/discord.png";
 import Icon from "./icon.tsx";
 
-const Footer = (): JSX.Element => {
+const Footer = (): React.ReactNode => {
   return (
     <div style={{ fontSize: 0 }}>
       <EndWave />

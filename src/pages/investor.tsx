@@ -4,7 +4,7 @@ import useWebsocketApi from "../hooks/useWebsocketApi";
 import { useEffect, useState } from "react";
 import PublicInvestor from "../types/publicInvestor";
 
-const Investor = (): JSX.Element => {
+const Investor = (): React.ReactNode => {
   const id = useParams().id as string;
   const location = useLocation();
   const fetchApi = useFetchApi();

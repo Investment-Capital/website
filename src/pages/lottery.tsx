@@ -1,4 +1,4 @@
-const Lottery = (): JSX.Element => {
+const Lottery = (): React.ReactNode => {
   return <h1>Coming Soon</h1>;
 };
 

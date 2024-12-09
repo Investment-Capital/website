@@ -6,7 +6,7 @@ import useFetchApi from "../../hooks/useFetchApi";
 import SavedUser from "../../types/savedUser";
 import useDeviceWidth from "../../hooks/useDeviceWidth";
 
-const UserIcon = (): JSX.Element => {
+const UserIcon = (): React.ReactNode => {
   const [authorization] = useLocalStorage<null | string>("authorization", null);
   const [user, setUser] = useState<SavedUser | null>(null);
   const mobile = useDeviceWidth((width) => width <= 1400);

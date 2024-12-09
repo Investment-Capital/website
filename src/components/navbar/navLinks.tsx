@@ -5,7 +5,7 @@ type Data = {
   links: Omit<NavigationLinks, "right">[];
 };
 
-const NavLinks = ({ links }: Data): JSX.Element[] => {
+const NavLinks = ({ links }: Data): React.ReactNode[] => {
   return links.map((link) => (
     <NavLink link={link.link ?? "/"} name={link.name} key={link.name} />
   ));

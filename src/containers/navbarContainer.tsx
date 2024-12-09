@@ -5,7 +5,7 @@ type Data = {
   children: React.ReactNode;
 };
 
-const NavbarContainer = ({ children }: Data): JSX.Element => {
+const NavbarContainer = ({ children }: Data): React.ReactNode => {
   const mobile = useDeviceWidth((width) => width <= 1400);
   const isDown = useScrollY((scroll) => scroll >= 7);
 

@@ -7,7 +7,7 @@ type Data = {
   name: string;
 };
 
-const Icon = ({ image, link, name }: Data): JSX.Element => {
+const Icon = ({ image, link, name }: Data): React.ReactNode => {
   const [hovered, setHovered] = useState<boolean>(false);
   return (
     <div

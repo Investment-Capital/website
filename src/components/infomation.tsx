@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import InfomationData from "../types/infomationData";
 import Topography from "./topography";
 
-const Infomation = ({ title, text, link }: InfomationData): JSX.Element => {
+const Infomation = ({ title, text, link }: InfomationData): React.ReactNode => {
   const [hovered, setHovered] = useState<boolean>(false);
   const navigate = useNavigate();
 

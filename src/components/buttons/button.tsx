@@ -14,7 +14,7 @@ const Button = ({
   text,
   styles,
   hoveredStyles,
-}: Data): JSX.Element => {
+}: Data): React.ReactNode => {
   const [hovered, setHovered] = useState<boolean>(false);
 
   return (

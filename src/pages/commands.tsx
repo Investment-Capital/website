@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useFetchApi from "../hooks/useFetchApi";
 import Command from "../types/command";
 
-const Commands = (): JSX.Element => {
+const Commands = (): React.ReactNode => {
   const [commands, setCommands] = useState<Command[]>();
   const fetchApi = useFetchApi();
 

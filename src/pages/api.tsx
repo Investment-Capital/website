@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useFetchApi from "../hooks/useFetchApi";
 
-const API = (): JSX.Element => {
+const API = (): React.ReactNode => {
   const fetchApi = useFetchApi();
   const [routes, setRoutes] = useState(null);
 

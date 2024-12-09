@@ -5,7 +5,7 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 import LoginMenu from "./components/loginMenu";
 import PermissionsOnlyPage from "./components/permissionsOnlyPage";
 
-const App = (): JSX.Element => {
+const App = (): React.ReactNode => {
   const [authorization] = useLocalStorage("authorization", null);
 
   return (

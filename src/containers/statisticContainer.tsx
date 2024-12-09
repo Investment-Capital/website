@@ -2,7 +2,7 @@ type Data = {
   children: React.ReactNode;
 };
 
-const StatisticContainer = ({ children }: Data): JSX.Element => {
+const StatisticContainer = ({ children }: Data): React.ReactNode => {
   return (
     <div
       style={{

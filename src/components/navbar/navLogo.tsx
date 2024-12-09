@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import icon from "../../assets/icon.webp";
 import useDeviceWidth from "../../hooks/useDeviceWidth";
 
-const NavLogo = (): JSX.Element => {
+const NavLogo = (): React.ReactNode => {
   const navigate = useNavigate();
   const mobile = useDeviceWidth((width) => width <= 1400);
 

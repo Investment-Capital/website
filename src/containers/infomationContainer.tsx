@@ -4,7 +4,7 @@ type Data = {
   children: React.ReactNode;
 };
 
-const InfomationContainer = ({ children }: Data): JSX.Element => {
+const InfomationContainer = ({ children }: Data): React.ReactNode => {
   const isMobile = useDeviceWidth((width) => width <= 800);
 
   return (

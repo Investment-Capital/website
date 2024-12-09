@@ -5,7 +5,7 @@ import useWebsocketApi from "../hooks/useWebsocketApi";
 import Markets from "../types/markets/markets";
 import Chart from "../components/chart";
 
-const Market = (): JSX.Element => {
+const Market = (): React.ReactNode => {
   const [marketData, setMarketData] = useState<Partial<Markets>>({});
   const fetchApi = useFetchApi();
   const websocketApi = useWebsocketApi();

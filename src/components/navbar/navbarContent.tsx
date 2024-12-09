@@ -13,7 +13,7 @@ type Data = {
   rightLinks: Required<NavigationLinks>[];
 };
 
-const NavbarContent = ({ leftLinks, rightLinks }: Data) => {
+const NavbarContent = ({ leftLinks, rightLinks }: Data): React.ReactNode => {
   const mobile = useDeviceWidth((width) => width <= 1400);
   const location = useLocation();
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<boolean>(false);

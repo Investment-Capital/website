@@ -15,7 +15,7 @@ import { useNavigate } from "react-router";
 import botInvite from "../config/botInvite";
 import { useLocalStorage } from "@uidotdev/usehooks";
 
-const Home = (): JSX.Element => {
+const Home = (): React.ReactNode => {
   const isMobile = useDeviceWidth((width) => width <= 800);
   const fetchApi = useFetchApi();
   const navigate = useNavigate();

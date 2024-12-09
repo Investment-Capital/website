@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 import useFetchApi from "../../hooks/useFetchApi";
 import SavedUser from "../../types/savedUser";
 
-const Login = (): JSX.Element => {
+const Login = (): React.ReactNode => {
   const location = useLocation();
   const naviagte = useNavigate();
   const fetchApi = useFetchApi();
