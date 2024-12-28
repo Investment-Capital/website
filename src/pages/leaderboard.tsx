@@ -5,6 +5,7 @@ import SavedUser from "../types/savedUser";
 import useFetchApi from "../hooks/useFetchApi";
 import InfiniteScroll from "../components/infiniteScroll";
 import leaderboards from "../config/leaderboards";
+import Table from "../components/table";
 
 const Leaderboard = (): React.ReactNode => {
   const location = useLocation();
@@ -41,35 +42,42 @@ const Leaderboard = (): React.ReactNode => {
       <div>
         {Object.entries(leaderboards).flatMap(([lbType, lb]) =>
           lb.map((value) => (
-            <button onClick={() => navigate(`/leaderboard/${lbType}/${value}`)}>
+            <button
+              onClick={() => navigate(`/leaderboard/${lbType}/${value}`)}
+              key={value + lbType}
+            >
               {lbType}: {value}
             </button>
           ))
         )}
       </div>
+
       <InfiniteScroll
-        pageSize={10}
         page={page}
+        pageSize={10}
         hasMore={more}
         next={async () => {
           setPage(page + 1);
           await updateData(page + 1);
         }}
       >
-        {(leaderboardData ?? [])?.map((lb) => (
-          <div
-            key={lb.position}
-            style={{ color: "white" }}
-            onClick={() => navigate(`/investor/${lb.id}`)}
-          >
-            <p>Username: {lb.username}</p>
-            <p>Position: {lb.position}</p>
-            <p>
-              {leaderboard}: {lb.value}
-            </p>
-            <img src={lb.avatar} />
-          </div>
-        ))}
+        <Table
+          titles={["Avatar", "Username", "Position", leaderboard]}
+          values={(leaderboardData ?? []).map((data) => {
+            return [
+              { title: "Username", value: data.username },
+              {
+                title: leaderboard,
+                value: data.value,
+              },
+              {
+                title: "Position",
+                value: data.position,
+              },
+              { title: "Avatar", value: data.avatar, image: true },
+            ];
+          })}
+        />
       </InfiniteScroll>
     </div>
   );
