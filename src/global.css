@@ -10,7 +10,7 @@
   src: url(/src/assets/poppins/700.woff2) format("woff2");
 }
 
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
 }
 

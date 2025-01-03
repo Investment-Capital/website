@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import LeaderboardType from "../types/leaderboard";
-import SavedUser from "../types/savedUser";
 import useFetchApi from "../hooks/useFetchApi";
 import InfiniteScroll from "../components/infiniteScroll";
-import leaderboards from "../config/leaderboards";
-import Table from "../components/table";
+import LeaderboardComponent from "../components/leaderboard";
+import LeaderboardConfig from "../types/leaderboardConfig";
 
 const Leaderboard = (): React.ReactNode => {
   const location = useLocation();
@@ -15,14 +14,21 @@ const Leaderboard = (): React.ReactNode => {
   const navigate = useNavigate();
 
   const [page, setPage] = useState(1);
-  const [leaderboardData, setLeaderboardData] =
-    useState<LeaderboardType<SavedUser>[]>();
+  const [leaderboardData, setLeaderboardData] = useState<LeaderboardType[]>();
+  const [leaderboardConfig, setLeaderboardConfig] =
+    useState<LeaderboardConfig>();
   const [more, setMore] = useState(true);
+  const [error, setError] = useState<string>();
+
+  useEffect(() => {
+    fetchApi("/config/leaderboard").then(setLeaderboardConfig);
+  }, []);
 
   useEffect(() => {
     setLeaderboardData(undefined);
     setPage(1);
     setMore(true);
+    setError(undefined);
 
     updateData(1);
   }, [location]);
@@ -35,50 +41,43 @@ const Leaderboard = (): React.ReactNode => {
           ...data,
         ])
       )
-      .catch(() => setMore(false));
+      .catch((error: Error) =>
+        error.message == "No data found for this page"
+          ? setMore(false)
+          : setError(error.message)
+      );
 
   return (
     <div>
       <div>
-        {Object.entries(leaderboards).flatMap(([lbType, lb]) =>
-          lb.map((value) => (
-            <button
-              onClick={() => navigate(`/leaderboard/${lbType}/${value}`)}
-              key={value + lbType}
-            >
-              {lbType}: {value}
-            </button>
-          ))
+        {Object.entries(leaderboardConfig ?? []).flatMap(
+          ([type, leaderboards]) =>
+            leaderboards.map((leaderboard) => (
+              <button
+                onClick={() => navigate(`/leaderboard/${type}/${leaderboard}`)}
+                key={leaderboard + type}
+              >
+                {type}: {leaderboard}
+              </button>
+            ))
         )}
       </div>
 
-      <InfiniteScroll
-        page={page}
-        pageSize={10}
-        hasMore={more}
-        next={async () => {
-          setPage(page + 1);
-          await updateData(page + 1);
-        }}
-      >
-        <Table
-          titles={["Avatar", "Username", "Position", leaderboard]}
-          values={(leaderboardData ?? []).map((data) => {
-            return [
-              { title: "Username", value: data.username },
-              {
-                title: leaderboard,
-                value: data.value,
-              },
-              {
-                title: "Position",
-                value: data.position,
-              },
-              { title: "Avatar", value: data.avatar, image: true },
-            ];
-          })}
-        />
-      </InfiniteScroll>
+      {error ? (
+        <h1>Error Loading Data: {error}</h1>
+      ) : (
+        <InfiniteScroll
+          page={page}
+          pageSize={10}
+          hasMore={more}
+          next={async () => {
+            setPage(page + 1);
+            await updateData(page + 1);
+          }}
+        >
+          <LeaderboardComponent data={leaderboardData ?? []} />
+        </InfiniteScroll>
+      )}
     </div>
   );
 };

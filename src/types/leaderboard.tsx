@@ -1,6 +1,8 @@
-type Leaderboard<T> = {
+type Leaderboard = {
   position: number;
   value: number;
-} & T;
+  name: string;
+  image: string;
+};
 
 export default Leaderboard;

@@ -12,7 +12,6 @@ import Route from "../types/route";
 import Login from "../pages/auth/login";
 import Logout from "../pages/auth/logout";
 import Investor from "../pages/investor";
-import leaderboards from "./leaderboards";
 import AccountPortfolio from "../pages/account/portfolio";
 import AdminPanel from "../pages/admin/panel";
 
@@ -43,7 +42,7 @@ const routes: Route[] = [
     },
   },
   {
-    paths: ["/market/stocks"],
+    paths: ["/market/stocks", "/market/realEstate"],
     element: Market,
     navigation: {
       name: "Markets",
@@ -60,9 +59,7 @@ const routes: Route[] = [
     },
   },
   {
-    paths: Object.entries(leaderboards).flatMap(([type, leaderboards]) =>
-      leaderboards.map((value) => `/leaderboard/${type}/${value}`)
-    ),
+    paths: "/leaderboard/:type/:leaderboard",
     element: Leaderboard,
     navigation: {
       name: "Leaderboards",

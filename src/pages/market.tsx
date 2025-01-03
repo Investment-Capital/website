@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import useFetchApi from "../hooks/useFetchApi";
 import { useLocation } from "react-router";
 import useWebsocketApi from "../hooks/useWebsocketApi";
-import Markets from "../types/markets/markets";
 import Chart from "../components/chart";
+import MarketType from "../types/markets/market";
 
 const Market = (): React.ReactNode => {
-  const [marketData, setMarketData] = useState<Partial<Markets>>({});
+  const [marketData, setMarketData] = useState<{ [key: string]: MarketType }>(
+    {}
+  );
   const fetchApi = useFetchApi();
   const websocketApi = useWebsocketApi();
   const location = useLocation();
-  const marketType: keyof Markets = location.pathname.split("/")[2] as any;
+  const marketType = location.pathname.split("/")[2] as any;
 
   useEffect(() => {
     fetchApi(`/market/${marketType}`).then((data) =>
@@ -30,7 +32,7 @@ const Market = (): React.ReactNode => {
 
       setMarketData((value) => {
         const newData = { ...value };
-        newData[json.market as keyof Markets] = json.data;
+        newData[json.market] = json.data;
 
         return newData;
       });
@@ -44,7 +46,7 @@ const Market = (): React.ReactNode => {
       <Chart
         width={1300}
         height={600}
-        data={Object.entries(marketData.stocks ?? []).reduce(
+        data={Object.entries(marketData[marketType] ?? []).reduce(
           (prev, current) => {
             (prev as any)[current[0]] = current[1].history;
             return prev;
