@@ -1,27 +1,6 @@
-@font-face {
-  font-family: "Poppins";
-  font-weight: 400;
-  src: url(/src/assets/poppins/400.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Poppins";
-  font-weight: 700;
-  src: url(/src/assets/poppins/700.woff2) format("woff2");
-}
-
-body::-webkit-scrollbar {
-  display: none;
-}
-
 * {
   margin: 0;
   padding: 0;
-  font-family: "Poppins";
-}
-
-body {
-  background-color: #1d1e28;
 }
 
 html {

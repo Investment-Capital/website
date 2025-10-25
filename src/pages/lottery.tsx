@@ -1,5 +1,0 @@
-const Lottery = (): React.ReactNode => {
-  return <h1>Coming Soon</h1>;
-};
-
-export default Lottery;
