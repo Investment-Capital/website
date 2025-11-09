@@ -12,11 +12,14 @@
     "@uidotdev/usehooks": "^2.4.1",
     "babel-plugin-react-compiler": "^1.0.0",
     "investmentcapital.js": "^1.2.0",
+    "locale-currency": "^1.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-markdown": "^10.1.0",
-    "react-router": "^7.9.4"
+    "react-router": "^7.9.4",
+    "react-router-dom": "^7.9.5",
+    "react-timeago": "^8.3.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.2",

@@ -2,7 +2,7 @@ import { StockConfig, StockMarketHistory } from "investmentcapital.js";
 
 type StocksCache = {
   [id: string]: {
-    config: StockConfig;
+    config?: StockConfig;
     market?: StockMarketHistory;
   };
 };
