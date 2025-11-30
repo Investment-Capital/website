@@ -1,7 +1,5 @@
-import PageProps from "./pageProps";
-
 type Route = {
-  element: (props: PageProps) => React.ReactNode;
+  element: () => React.ReactNode;
   path: string;
 };
 

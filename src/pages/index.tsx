@@ -1,6 +1,3 @@
-import PageProps from "../types/pageProps";
-
-const IndexPage = ({ stocksCache, accountCache }: PageProps) =>
-  JSON.stringify({ stocksCache, accountCache });
+const IndexPage = () => <p>hi</p>;
 
 export default IndexPage;

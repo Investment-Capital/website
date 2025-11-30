@@ -1,16 +1,17 @@
-import PageProps from "../types/pageProps";
 import TimeAgo from "react-timeago";
 import Number from "../components/number";
+import { useStocksCache } from "../hooks/cache/useStocksCache";
 
-const MarketPage = ({ stocksCache }: PageProps) => {
+const MarketPage = () => {
+  const stocksCache = useStocksCache();
   if (!stocksCache) return <div>loading</div>;
 
   return (
     <div style={{ display: "flex", gap: "12px", flexDirection: "column" }}>
       {Object.entries(stocksCache).map(([id, data]) => (
         <div>
-          <p>id: {id}</p>
-          <p>name: {data.config?.name}</p>
+          <p>ID: {id}</p>
+          <p>Name: {data.config?.name}</p>
           {data.market && (
             <>
               <p>

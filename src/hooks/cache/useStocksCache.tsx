@@ -1,8 +1,13 @@
-import { useEffect, useState } from "react";
-import StocksCache from "../../types/stocksCache";
+import { createContext, useContext, useEffect, useState } from "react";
+import StocksCache from "../../types/cache/stocksCache";
 import { Stocks } from "investmentcapital.js";
+import Container from "../../types/container";
 
-const useStocksCache = () => {
+export const StocksCacheContext = createContext<StocksCache | undefined>(
+  undefined
+);
+
+export const StocksCacheProvider = ({ children }: Container) => {
   const [data, setData] = useState<StocksCache>();
 
   useEffect(() => {
@@ -36,7 +41,13 @@ const useStocksCache = () => {
     });
   }, []);
 
-  return data;
+  return (
+    <StocksCacheContext.Provider value={data}>
+      {children}
+    </StocksCacheContext.Provider>
+  );
 };
 
-export default useStocksCache;
+export const useStocksCache = () => {
+  return useContext(StocksCacheContext);
+};

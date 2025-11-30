@@ -3,6 +3,8 @@ import App from "./app.js";
 import "./global.css";
 import { BrowserRouter } from "react-router";
 import { setApiData } from "investmentcapital.js";
+import { StocksCacheProvider } from "./hooks/cache/useStocksCache.js";
+import { AccountCacheProvider } from "./hooks/cache/useAccountCache.js";
 
 setApiData({
   baseUrl: import.meta.env.VITE_BASE_API_LINK,
@@ -11,6 +13,10 @@ setApiData({
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <BrowserRouter>
-    <App />
+    <StocksCacheProvider>
+      <AccountCacheProvider>
+        <App />
+      </AccountCacheProvider>
+    </StocksCacheProvider>
   </BrowserRouter>
 );
