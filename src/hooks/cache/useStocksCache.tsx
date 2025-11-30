@@ -3,12 +3,10 @@ import StocksCache from "../../types/cache/stocksCache";
 import { Stocks } from "investmentcapital.js";
 import Container from "../../types/container";
 
-export const StocksCacheContext = createContext<StocksCache | undefined>(
-  undefined
-);
+const StocksCacheContext = createContext<StocksCache | null>(null);
 
 export const StocksCacheProvider = ({ children }: Container) => {
-  const [data, setData] = useState<StocksCache>();
+  const [data, setData] = useState<StocksCache | null>(null);
 
   useEffect(() => {
     Promise.all([Stocks.config(), Stocks.market()]).then(
@@ -28,7 +26,7 @@ export const StocksCacheProvider = ({ children }: Container) => {
 
     Stocks.webSocket().onMessage((message) => {
       setData((data) => {
-        if (!data) return;
+        if (!data) return null;
 
         const newData = { ...data };
         newData[message.data.id] = {

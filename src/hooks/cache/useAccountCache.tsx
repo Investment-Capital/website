@@ -4,17 +4,17 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 import { Investors } from "investmentcapital.js";
 import Container from "../../types/container";
 
-export const AccountCacheContext = createContext<AccountCache | undefined>(
-  undefined
+const AccountCacheContext = createContext<AccountCache | null | undefined>(
+  null
 );
 
 export const AccountCacheProvider = ({ children }: Container) => {
-  const [data, setData] = useState<AccountCache>();
+  const [data, setData] = useState<AccountCache | null | undefined>();
   const [authorization] = useLocalStorage<string>("authorization");
 
   useEffect(() => {
-    setData(undefined);
-    if (!authorization) return;
+    if (!authorization) return setData(undefined);
+    setData(null);
 
     const [id] = authorization.split(" ");
     const websocket = Investors.webSocket(id);

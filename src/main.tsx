@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router";
 import { setApiData } from "investmentcapital.js";
 import { StocksCacheProvider } from "./hooks/cache/useStocksCache.js";
 import { AccountCacheProvider } from "./hooks/cache/useAccountCache.js";
+import { ModalProvider } from "./hooks/useModals.js";
 
 setApiData({
   baseUrl: import.meta.env.VITE_BASE_API_LINK,
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <BrowserRouter>
     <StocksCacheProvider>
       <AccountCacheProvider>
-        <App />
+        <ModalProvider>
+          <App />
+        </ModalProvider>
       </AccountCacheProvider>
     </StocksCacheProvider>
   </BrowserRouter>
