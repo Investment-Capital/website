@@ -1,10 +1,10 @@
 import { useModals } from "../hooks/useModals";
-import TestModal from "../modals/test";
+import LoginModal from "../modals/login";
 
 const IndexPage = () => {
   const modals = useModals();
 
-  return <button onClick={() => modals?.add(TestModal)}>add modal</button>;
+  return <button onClick={() => modals?.add(LoginModal)}>login</button>;
 };
 
 export default IndexPage;

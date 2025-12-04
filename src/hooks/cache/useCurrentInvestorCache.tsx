@@ -1,15 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import AccountCache from "../../types/cache/accountCache";
 import { useLocalStorage } from "@uidotdev/usehooks";
-import { Investors } from "investmentcapital.js";
+import { Investor, Investors } from "investmentcapital.js";
 import Container from "../../types/container";
 
-const AccountCacheContext = createContext<AccountCache | null | undefined>(
-  null
-);
+const CurrentInvestorContext = createContext<Investor | null | undefined>(null);
 
-export const AccountCacheProvider = ({ children }: Container) => {
-  const [data, setData] = useState<AccountCache | null | undefined>();
+export const CurrentInvestorCacheProvider = ({ children }: Container) => {
+  const [data, setData] = useState<Investor | null | undefined>();
   const [authorization] = useLocalStorage<string>("authorization");
 
   useEffect(() => {
@@ -26,12 +23,12 @@ export const AccountCacheProvider = ({ children }: Container) => {
   }, [authorization]);
 
   return (
-    <AccountCacheContext.Provider value={data}>
+    <CurrentInvestorContext.Provider value={data}>
       {children}
-    </AccountCacheContext.Provider>
+    </CurrentInvestorContext.Provider>
   );
 };
 
-export const useAccountCache = () => {
-  return useContext(AccountCacheContext);
+export const useCurrentInvestorCache = () => {
+  return useContext(CurrentInvestorContext);
 };
