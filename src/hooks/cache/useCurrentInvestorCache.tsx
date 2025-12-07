@@ -1,19 +1,19 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useLocalStorage } from "@uidotdev/usehooks";
-import { Investor, Investors } from "investmentcapital.js";
+import { Auth, Investor, Investors } from "investmentcapital.js";
 import Container from "../../types/container";
+import useAuthorization from "../useAuthorization";
 
 const CurrentInvestorContext = createContext<Investor | null | undefined>(null);
 
 export const CurrentInvestorCacheProvider = ({ children }: Container) => {
   const [data, setData] = useState<Investor | null | undefined>();
-  const [authorization] = useLocalStorage<string>("authorization");
+  const [authorization] = useAuthorization();
 
   useEffect(() => {
     if (!authorization) return setData(undefined);
     setData(null);
 
-    const [id] = authorization.split(" ");
+    const id = Auth.investorId(authorization);
     const websocket = Investors.webSocket(id);
 
     Investors.lookup(id).then(setData);

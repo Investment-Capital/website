@@ -1,18 +1,21 @@
 import { useRef } from "react";
 import Modal from "../types/modal";
 import { Auth } from "investmentcapital.js";
-import { useLocalStorage } from "@uidotdev/usehooks";
+import useAuthorization from "../hooks/useAuthorization";
+import Button from "../components/button";
+import colors from "../config/colors";
 
 const LoginModal: Modal = ({ close }) => {
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const [_, setAuthorization] = useLocalStorage("authorization");
+  const [_, setAuthorization] = useAuthorization();
 
   return (
     <div>
       <input placeholder="username" ref={usernameRef} />
       <input placeholder="password" ref={passwordRef} />
-      <button
+      <Button
+        text="Login"
         onClick={() =>
           usernameRef.current &&
           passwordRef.current &&
@@ -23,9 +26,8 @@ const LoginModal: Modal = ({ close }) => {
             }
           )
         }
-      >
-        login
-      </button>
+      />
+      <Button text="Cancel" color={colors.red.primary} onClick={close} />
     </div>
   );
 };

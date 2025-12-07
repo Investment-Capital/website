@@ -1,12 +1,17 @@
-import { useCurrentInvestorCache } from "../../hooks/cache/useCurrentInvestorCache";
+import { Auth, Investors } from "investmentcapital.js";
+import useAuthorization from "../../hooks/useAuthorization";
 
 const Navbar = () => {
-  const investor = useCurrentInvestorCache();
+  const [authorization] = useAuthorization();
 
-  if (investor == null) return <div>loading</div>;
-  if (investor == undefined) return <div>not logged in</div>;
+  if (authorization == undefined) return <div>not logged in</div>;
+  const id = Auth.investorId(authorization);
 
-  return <div>{investor.account.profile.username}</div>;
+  return (
+    <div>
+      <img style={{ height: "100px" }} src={Investors.icon(id)} />
+    </div>
+  );
 };
 
 export default Navbar;

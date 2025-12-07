@@ -1,11 +1,14 @@
 import ReactDOM from "react-dom/client";
 import App from "./app.js";
-import "./global.css";
 import { BrowserRouter } from "react-router";
 import { setApiData } from "investmentcapital.js";
 import { StocksCacheProvider } from "./hooks/cache/useStocksCache.js";
 import { CurrentInvestorCacheProvider } from "./hooks/cache/useCurrentInvestorCache.tsx";
 import { ModalProvider } from "./hooks/useModals.tsx";
+
+import "@fontsource/poppins/400";
+import "@fontsource/poppins/600";
+import "./global.css";
 
 setApiData({
   baseUrl: import.meta.env.VITE_BASE_API_LINK,
