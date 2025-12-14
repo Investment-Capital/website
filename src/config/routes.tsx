@@ -11,6 +11,38 @@ const routes: Route[] = [
   {
     path: "/market",
     element: MarketPage,
+    sidebar: {
+      label: "Market",
+      category: "Investing",
+      icon: "",
+    },
+  },
+  {
+    path: "/lookup",
+    element: () => <div></div>,
+    sidebar: {
+      label: "Lookup",
+      category: "Infomation",
+      icon: "",
+    },
+  },
+  {
+    path: "/terms",
+    element: () => <div></div>,
+    sidebar: {
+      label: "Terms",
+      category: "Legal",
+      icon: "",
+    },
+  },
+  {
+    path: "/privacy",
+    element: () => <div></div>,
+    sidebar: {
+      label: "Privacy",
+      category: "Legal",
+      icon: "",
+    },
   },
   {
     path: "*",

@@ -6,7 +6,7 @@ import useAuthorization from "../useAuthorization";
 const CurrentInvestorContext = createContext<Investor | null | undefined>(null);
 
 export const CurrentInvestorCacheProvider = ({ children }: Container) => {
-  const [data, setData] = useState<Investor | null | undefined>();
+  const [data, setData] = useState<Investor | null | undefined>(null);
   const [authorization] = useAuthorization();
 
   useEffect(() => {

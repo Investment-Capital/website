@@ -11,16 +11,19 @@ const App = (): React.ReactNode => {
         backgroundColor: colors.dark.primary(),
         minWidth: "100vw",
         minHeight: "100vh",
+        display: "flex",
       }}
     >
       <Modals />
       <div>
         <Navbar />
-        <Routes>
-          {routes.map((route) => (
-            <Route path={route.path} element={<route.element />} />
-          ))}
-        </Routes>
+        <div style={{ paddingTop: `${45 + 2 * 12}px` }}>
+          <Routes>
+            {routes.map((route) => (
+              <Route path={route.path} element={<route.element />} />
+            ))}
+          </Routes>
+        </div>
       </div>
     </div>
   );

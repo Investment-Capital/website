@@ -5,7 +5,6 @@ const Modals = () => {
   const modals = useModals();
   const modal = modals?.current[0];
 
-  if (!modal) return;
   return (
     <div
       style={{
@@ -15,19 +14,24 @@ const Modals = () => {
         alignItems: "center",
         height: "100%",
         width: "100%",
-        backgroundColor: colors.dark.black(0.5),
-        backdropFilter: "blur(4px)",
+        backgroundColor: colors.dark.black(modal ? 0.5 : 0),
+        backdropFilter: `blur(${modal ? 4 : 0}px)`,
+        transition: "backdrop-filter 0.25s, background-color 0.25s",
+        pointerEvents: modal ? "auto" : "none",
+        zIndex: 2,
       }}
     >
-      <div
-        style={{
-          backgroundColor: colors.dark.secondary(),
-          padding: "24px",
-          borderRadius: "6px",
-        }}
-      >
-        <modal.component close={() => modals.close(modal.id)} />
-      </div>
+      {modal && (
+        <div
+          style={{
+            backgroundColor: colors.dark.secondary(),
+            padding: "24px",
+            borderRadius: "6px",
+          }}
+        >
+          <modal.component close={() => modals.close(modal.id)} />
+        </div>
+      )}
     </div>
   );
 };
