@@ -2,8 +2,8 @@ import rgba from "../functions/rgba";
 
 const colors = {
   dark: {
-    primary: rgba(30, 31, 37),
-    secondary: rgba(38, 40, 45),
+    primary: rgba(26, 31, 44),
+    secondary: rgba(29, 35, 51),
     black: rgba(0, 0, 0),
     grey: rgba(80, 80, 80),
   },

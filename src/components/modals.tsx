@@ -18,7 +18,7 @@ const Modals = () => {
         backdropFilter: `blur(${modal ? 4 : 0}px)`,
         transition: "backdrop-filter 0.25s, background-color 0.25s",
         pointerEvents: modal ? "auto" : "none",
-        zIndex: 2,
+        zIndex: 3,
       }}
     >
       {modal && (

@@ -18,15 +18,6 @@ const routes: Route[] = [
     },
   },
   {
-    path: "/lookup",
-    element: () => <div></div>,
-    sidebar: {
-      label: "Lookup",
-      category: "Infomation",
-      icon: "",
-    },
-  },
-  {
     path: "/terms",
     element: () => <div></div>,
     sidebar: {

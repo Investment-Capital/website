@@ -3,11 +3,15 @@ import { Auth, Investor, Investors } from "investmentcapital.js";
 import Container from "../../types/container";
 import useAuthorization from "../useAuthorization";
 
-const CurrentInvestorContext = createContext<Investor | null | undefined>(null);
+const CurrentInvestorContext = createContext<Investor | null | undefined>(
+  undefined
+);
 
 export const CurrentInvestorCacheProvider = ({ children }: Container) => {
-  const [data, setData] = useState<Investor | null | undefined>(null);
   const [authorization] = useAuthorization();
+  const [data, setData] = useState<Investor | null | undefined>(
+    !authorization ? undefined : null
+  );
 
   useEffect(() => {
     if (!authorization) return setData(undefined);
