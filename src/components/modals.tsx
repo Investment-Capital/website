@@ -14,7 +14,7 @@ const Modals = () => {
         alignItems: "center",
         height: "100%",
         width: "100%",
-        backgroundColor: colors.dark.black(modal ? 0.5 : 0),
+        backgroundColor: colors.black(modal ? 0.5 : 0),
         backdropFilter: `blur(${modal ? 4 : 0}px)`,
         transition: "backdrop-filter 0.25s, background-color 0.25s",
         pointerEvents: modal ? "auto" : "none",
@@ -24,7 +24,7 @@ const Modals = () => {
       {modal && (
         <div
           style={{
-            backgroundColor: colors.dark.secondary(),
+            backgroundColor: colors.secondary(),
             padding: "24px",
             borderRadius: "6px",
           }}

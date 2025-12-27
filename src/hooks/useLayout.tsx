@@ -6,7 +6,7 @@ const useLayout = () => {
     ...layout,
     content: {
       widthOffset: layout.sidebar.width + 2 * layout.sidebar.padding,
-      heightOffset: layout.navbar.height + 2 * layout.navbar.padding,
+      heightOffset: layout.navbar.height + 2 * layout.navbar.verticalPadding,
       ...layout.content,
     },
   };

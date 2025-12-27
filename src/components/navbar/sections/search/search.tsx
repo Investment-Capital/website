@@ -1,0 +1,85 @@
+import { Search } from "lucide-react";
+import Input from "../../../input";
+import { useEffect, useState } from "react";
+import colors from "../../../../config/colors";
+import { Investor, Investors } from "investmentcapital.js";
+import SearchOption from "./option";
+
+const SearchSection = () => {
+  const [search, setSearch] = useState("");
+  const [focussed, setFocussed] = useState(false);
+  const [foundInvestors, setFoundInvestors] = useState<
+    Investor["account"]["profile"][] | null
+  >(null);
+
+  useEffect(() => {
+    setFoundInvestors(null);
+    let current = true;
+
+    Investors.search(search)
+      .then((data) => current && setFoundInvestors(data))
+      .catch(() => setFoundInvestors([]));
+
+    return () => {
+      current = false;
+    };
+  }, [search]);
+
+  return (
+    <div
+      style={{
+        flex: 0.4,
+        minWidth: "400px",
+        position: "relative",
+      }}
+    >
+      <Input
+        icon={<Search />}
+        onValueChange={setSearch}
+        onFocusChange={setFocussed}
+        placeholder="Search investors..."
+        style={{
+          borderTopLeftRadius: "9px",
+          borderTopRightRadius: "9px",
+          borderBottomLeftRadius: focussed ? "0px" : "9px",
+          borderBottomRightRadius: focussed ? "0px" : "9px",
+        }}
+      />
+      {focussed && (
+        <div
+          onMouseDown={(element) => element.preventDefault()}
+          style={{
+            position: "absolute",
+            backgroundColor: colors.primary(1),
+            width: "100%",
+            borderBottomLeftRadius: "9px",
+            borderBottomRightRadius: "9px",
+            border: `1px solid ${colors.tertiary()}`,
+            boxSizing: "border-box",
+            borderTop: "none",
+            overflow: "auto",
+            maxHeight: "300px",
+          }}
+        >
+          {!foundInvestors ? (
+            <div> loading</div>
+          ) : foundInvestors.length == 0 ? (
+            <div>no matches found</div>
+          ) : (
+            foundInvestors.map((investor) => (
+              <SearchOption
+                key={investor.id}
+                title={investor.username}
+                description={investor.id}
+                icon={Investors.icon(investor.id)}
+                link={`/investor/${investor.id}`}
+              />
+            ))
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default SearchSection;

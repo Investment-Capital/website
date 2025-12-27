@@ -3,12 +3,12 @@ type Sidebar =
   | {
       category: string;
       label: string;
-      icon: string;
+      icon: React.ReactNode;
       link?: string;
     };
 
 type Route = {
-  element: () => React.ReactNode;
+  element: React.ReactNode;
   path: string;
 
   sidebar?: Sidebar;

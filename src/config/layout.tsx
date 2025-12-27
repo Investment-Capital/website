@@ -1,7 +1,8 @@
 const layout = {
   navbar: {
-    padding: 8,
-    height: 55,
+    verticalPadding: 8,
+    horizontalPadding: 12,
+    height: 50,
   },
   sidebar: {
     width: 260,

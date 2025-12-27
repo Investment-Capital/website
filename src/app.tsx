@@ -12,7 +12,7 @@ const App = (): React.ReactNode => {
   return (
     <div
       style={{
-        backgroundColor: colors.dark.secondary(),
+        backgroundColor: colors.secondary(),
         minWidth: "100vw",
         minHeight: "100vh",
         display: "flex",
@@ -30,8 +30,8 @@ const App = (): React.ReactNode => {
         >
           <div
             style={{
-              borderTopLeftRadius: "12px",
-              backgroundColor: colors.dark.primary(),
+              borderTopLeftRadius: "9px",
+              backgroundColor: colors.primary(),
               height: `calc(100vh - ${
                 layout.content.heightOffset + layout.content.padding * 2
               }px)`,
@@ -44,7 +44,7 @@ const App = (): React.ReactNode => {
           >
             <Routes>
               {routes.map((route) => (
-                <Route path={route.path} element={<route.element />} />
+                <Route path={route.path} element={route.element} />
               ))}
             </Routes>
           </div>

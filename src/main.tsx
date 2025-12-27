@@ -7,6 +7,7 @@ import { CurrentInvestorCacheProvider } from "./hooks/cache/useCurrentInvestorCa
 import { ModalProvider } from "./hooks/useModals.tsx";
 
 import "@fontsource/poppins/400";
+import "@fontsource/poppins/500";
 import "@fontsource/poppins/600";
 import "./global.css";
 

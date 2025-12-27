@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Poppins";
 }
 
 html {
@@ -8,6 +9,10 @@ html {
   color: white;
 }
 
-* {
-  font-family: "Poppins";
+input::placeholder {
+  color: rgb(154, 161, 178);
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

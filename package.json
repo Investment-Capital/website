@@ -12,8 +12,9 @@
     "@number-flow/react": "^0.5.10",
     "@uidotdev/usehooks": "^2.4.1",
     "babel-plugin-react-compiler": "^1.0.0",
-    "investmentcapital.js": "^1.2.1",
+    "investmentcapital.js": "^1.2.2",
     "locale-currency": "^1.0.0",
+    "lucide-react": "^0.561.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-infinite-scroll-component": "^6.1.0",
@@ -27,7 +28,6 @@
     "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.0.4",
     "typescript": "^5.9.3",
-    "vite": "^7.1.11",
-    "vite-plugin-singlefile": "^2.3.0"
+    "vite": "^7.1.11"
   }
 }
