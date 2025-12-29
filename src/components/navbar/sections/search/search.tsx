@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { Loader2, Search, X } from "lucide-react";
 import Input from "../../../input";
 import { useEffect, useState } from "react";
 import colors from "../../../../config/colors";
@@ -13,7 +13,6 @@ const SearchSection = () => {
   >(null);
 
   useEffect(() => {
-    setFoundInvestors(null);
     let current = true;
 
     Investors.search(search)
@@ -61,10 +60,29 @@ const SearchSection = () => {
             maxHeight: "300px",
           }}
         >
-          {!foundInvestors ? (
-            <div> loading</div>
-          ) : foundInvestors.length == 0 ? (
-            <div>no matches found</div>
+          {!foundInvestors || foundInvestors.length == 0 ? (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                gap: "12px",
+                padding: "12px",
+                alignItems: "center",
+              }}
+            >
+              {!foundInvestors ? <Loader2 size={55} /> : <X size={55} />}
+              <div>
+                <p style={{ fontWeight: 600, fontSize: "20px" }}>
+                  {!foundInvestors ? "Searching... " : "None Found"}
+                </p>
+                <p style={{ color: colors.grey(), fontSize: "14px" }}>
+                  {!foundInvestors
+                    ? "Shouldn't take too long."
+                    : "Try searching something else."}
+                </p>
+              </div>
+            </div>
           ) : (
             foundInvestors.map((investor) => (
               <SearchOption

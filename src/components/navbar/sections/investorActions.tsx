@@ -1,10 +1,15 @@
-import { Bell, Crown, Star } from "lucide-react";
+import { Crown, Settings, Star } from "lucide-react";
 import useLayout from "../../../hooks/useLayout";
 import useAuthorization from "../../../hooks/useAuthorization";
 import { Auth, Investors } from "investmentcapital.js";
 import { useNavigate } from "react-router";
+import { useModals } from "../../../hooks/useModals";
+import PrestigeModal from "../../../modals/prestige";
+import SettingsModal from "../../../modals/settings";
+import LevelModal from "../../../modals/level";
 
 const InvestorActionsSection = () => {
+  const modals = useModals();
   const [authorization] = useAuthorization();
   const layout = useLayout();
   const navigate = useNavigate();
@@ -20,9 +25,24 @@ const InvestorActionsSection = () => {
         }}
       >
         <div style={{ display: "flex", gap: "9px" }}>
-          <Crown />
-          <Star />
-          <Bell />
+          <Crown
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => modals?.add(PrestigeModal)}
+          />
+          <Star
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => modals?.add(LevelModal)}
+          />
+          <Settings
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => modals?.add(SettingsModal)}
+          />
         </div>
         <img
           style={{

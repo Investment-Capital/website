@@ -16,3 +16,13 @@ input::placeholder {
 ::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.lucide-loader-circle {
+  animation: spin 0.5s linear infinite;
+}
