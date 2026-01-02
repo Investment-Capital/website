@@ -16,7 +16,7 @@ const SidebarButton = ({ link }: Props) => {
   return (
     <div
       {...bind}
-      onClick={() => navigate(link.sidebar?.link ?? link.path)}
+      onClick={() => navigate(link.navigation?.link ?? link.path)}
       style={{
         padding: "9px",
         backgroundColor: colors.tertiary(match || hovered ? 0.7 : 0),
@@ -35,8 +35,8 @@ const SidebarButton = ({ link }: Props) => {
           gap: "9px",
         }}
       >
-        {link.sidebar.icon}
-        <p>{link.sidebar.label}</p>
+        <link.navigation.icon />
+        <p>{link.navigation.label}</p>
       </div>
       <ChevronRight />
     </div>

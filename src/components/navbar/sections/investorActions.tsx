@@ -1,5 +1,4 @@
 import { Crown, Settings, Star } from "lucide-react";
-import useLayout from "../../../hooks/useLayout";
 import useAuthorization from "../../../hooks/useAuthorization";
 import { Auth, Investors } from "investmentcapital.js";
 import { useNavigate } from "react-router";
@@ -7,11 +6,11 @@ import { useModals } from "../../../hooks/useModals";
 import PrestigeModal from "../../../modals/prestige";
 import SettingsModal from "../../../modals/settings";
 import LevelModal from "../../../modals/level";
+import layout from "../../../config/layout";
 
 const InvestorActionsSection = () => {
   const modals = useModals();
   const [authorization] = useAuthorization();
-  const layout = useLayout();
   const navigate = useNavigate();
 
   return (
@@ -46,8 +45,8 @@ const InvestorActionsSection = () => {
         </div>
         <img
           style={{
-            height: layout.navbar.height,
-            width: layout.navbar.height,
+            height: layout.navbar.height.pc,
+            width: layout.navbar.height.pc,
             cursor: "pointer",
           }}
           onClick={() =>

@@ -9,7 +9,7 @@ type Props = {
 
 const LinkSection = ({ category }: Props) => {
   const links = routes.filter(
-    (route) => route.sidebar?.category == category
+    (route) => route.navigation?.category == category
   ) as Required<Route>[];
 
   return (

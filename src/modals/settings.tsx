@@ -9,7 +9,7 @@ const SettingsModal: Modal = ({ close }) => {
   return (
     <div>
       <Button
-        color={colors.red}
+        backgroundColor={colors.red}
         text="Logout"
         onClick={() => setAuthorization(null)}
       />

@@ -1,8 +1,9 @@
 import { CSSProperties } from "react";
 import colors from "../config/colors";
+import { LucideIcon } from "lucide-react";
 
 type Props = {
-  icon: React.ReactNode;
+  icon: LucideIcon;
   placeholder: string;
   onValueChange?: (value: string) => any;
   onFocusChange?: (focussed: boolean) => any;
@@ -12,14 +13,14 @@ type Props = {
 const Input = ({
   placeholder,
   onValueChange,
-  icon,
+  icon: Icon,
   onFocusChange,
   style,
 }: Props) => {
   return (
     <div
       style={{
-        padding: "6px",
+        padding: "7px",
         borderRadius: "9px",
         backgroundColor: colors.primary(),
         display: "flex",
@@ -31,7 +32,7 @@ const Input = ({
         ...style,
       }}
     >
-      {icon}
+      {Icon && <Icon />}
       <input
         placeholder={placeholder}
         onChange={(element) =>

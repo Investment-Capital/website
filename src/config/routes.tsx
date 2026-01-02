@@ -13,57 +13,57 @@ import { Navigate } from "react-router-dom";
 const routes: Route[] = [
   {
     path: "/",
-    element: <IndexPage />,
+    element: IndexPage,
   },
   {
     path: "/market",
-    element: <MarketPage />,
-    sidebar: {
+    element: MarketPage,
+    navigation: {
       label: "Market",
       category: "Game",
-      icon: <TrendingUp />,
+      icon: TrendingUp,
     },
   },
   {
     path: "/leaderboard/:type",
-    element: <div></div>,
-    sidebar: {
+    element: () => <div></div>,
+    navigation: {
       label: "Leaderboards",
       category: "Game",
       link: "/leaderboard/cash",
-      icon: <Trophy />,
+      icon: Trophy,
     },
   },
   {
     path: "/guide",
-    element: <div></div>,
-    sidebar: {
+    element: () => <div></div>,
+    navigation: {
       label: "Guide",
       category: "Game",
-      icon: <BookOpen />,
+      icon: BookOpen,
     },
   },
   {
     path: "/terms",
-    element: <div></div>,
-    sidebar: {
+    element: () => <div></div>,
+    navigation: {
       label: "Terms",
       category: "Legal",
-      icon: <FileText />,
+      icon: FileText,
     },
   },
   {
     path: "/privacy",
-    element: <div></div>,
-    sidebar: {
+    element: () => <div></div>,
+    navigation: {
       label: "Privacy",
       category: "Legal",
-      icon: <ShieldCheck />,
+      icon: ShieldCheck,
     },
   },
   {
     path: "*",
-    element: <Navigate to="/" />,
+    element: () => <Navigate to="/" />,
   },
 ];
 

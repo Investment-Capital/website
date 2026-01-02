@@ -2,11 +2,14 @@ const layout = {
   navbar: {
     verticalPadding: 8,
     horizontalPadding: 12,
-    height: 50,
+    height: { pc: 50, mobile: 95 },
   },
   sidebar: {
-    width: 260,
-    padding: 12,
+    width: {
+      pc: 260,
+      mobile: 0,
+    },
+    padding: { pc: 12, mobile: 0 },
   },
   content: {
     padding: 12,

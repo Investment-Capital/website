@@ -33,7 +33,7 @@ const SearchSection = () => {
       }}
     >
       <Input
-        icon={<Search />}
+        icon={Search}
         onValueChange={setSearch}
         onFocusChange={setFocussed}
         placeholder="Search investors..."

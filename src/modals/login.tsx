@@ -27,7 +27,7 @@ const LoginModal: Modal = ({ close }) => {
           )
         }
       />
-      <Button text="Cancel" color={colors.red} onClick={close} />
+      <Button text="Cancel" backgroundColor={colors.red} onClick={close} />
     </div>
   );
 };

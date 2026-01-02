@@ -9,7 +9,7 @@ const MarketPage = () => {
   return (
     <div style={{ display: "flex", gap: "12px", flexDirection: "column" }}>
       {Object.entries(stocksCache).map(([id, data]) => (
-        <div>
+        <div key={id}>
           <p>ID: {id}</p>
           <p>Name: {data.config?.name}</p>
           {data.market && (

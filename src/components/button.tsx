@@ -1,15 +1,23 @@
+import { LucideIcon } from "lucide-react";
 import colors from "../config/colors";
 import useHovered from "../hooks/useHovered";
 import Color from "../types/color";
 
 type Props = {
   text: string;
-  icon?: React.ReactNode;
+  icon?: LucideIcon;
+  backgroundColor?: Color;
   color?: Color;
   onClick?: () => any;
 };
 
-const Button = ({ text, onClick, icon, color = colors.tertiary }: Props) => {
+const Button = ({
+  text,
+  onClick,
+  icon: Icon,
+  backgroundColor = colors.tertiary,
+  color = colors.white,
+}: Props) => {
   const { hovered, bind } = useHovered();
 
   return (
@@ -20,19 +28,19 @@ const Button = ({ text, onClick, icon, color = colors.tertiary }: Props) => {
         border: "none",
         fontWeight: 600,
         fontSize: "14px",
-        padding: "9px",
+        padding: "8px",
         cursor: "pointer",
-        backgroundColor: color(hovered ? 1 : 0.7),
+        backgroundColor: backgroundColor(hovered ? 1 : 0.7),
         transition: "0.25s",
         display: "flex",
         flexDirection: "row",
-        gap: "4px",
+        gap: "6px",
         alignItems: "center",
-        color: "white",
+        color: color(),
       }}
       onClick={onClick}
     >
-      {icon}
+      {Icon && <Icon />}
       {text}
     </button>
   );

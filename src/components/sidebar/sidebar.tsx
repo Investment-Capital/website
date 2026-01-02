@@ -7,26 +7,27 @@ import NetworthSection from "./sections/networth";
 const Sidebar = () => {
   const layout = useLayout();
   const linkCateories = routes
-    .filter((route) => route.sidebar)
-    .map((route) => route.sidebar?.category as string)
+    .filter((route) => route.navigation)
+    .map((route) => route.navigation?.category as string)
     .filter((category, index, self) => index == self.indexOf(category));
 
   return (
     <div
       style={{
-        height: `calc(100vh - ${layout.content.heightOffset}px)`,
+        height: `calc(100vh - ${layout.content.heightOffset}px - ${layout.sidebar.padding}px)`,
         position: "fixed",
         width: layout.sidebar.width,
         padding: layout.sidebar.padding,
         backgroundColor: colors.secondary(),
         paddingTop: layout.content.heightOffset,
-        zIndex: 1,
         display: "flex",
         gap: "12px",
         flexDirection: "column",
+        overflow: "auto",
       }}
     >
       <NetworthSection />
+
       {linkCateories.map((category) => (
         <LinkSection category={category} key={category} />
       ))}

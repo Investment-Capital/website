@@ -8,7 +8,7 @@ export const ModalProvider = ({ children }: Container) => {
   const [modals, setModals] = useState<ModalContextType["current"]>([]);
 
   const add: ModalContextType["add"] = (modal) => {
-    const id = crypto.randomUUID();
+    const id = Math.random().toString();
     setModals((modals) => [...modals, { id, component: modal }]);
     return id;
   };

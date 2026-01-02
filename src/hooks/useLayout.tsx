@@ -1,13 +1,26 @@
 import layout from "../config/layout";
+import useMobile from "./useMobile";
 
-// will add mobile modes to make the offsets dynamic etc
 const useLayout = () => {
+  const mobile = useMobile();
+  const device = mobile ? "mobile" : "pc";
+
   return {
-    ...layout,
     content: {
-      widthOffset: layout.sidebar.width + 2 * layout.sidebar.padding,
-      heightOffset: layout.navbar.height + 2 * layout.navbar.verticalPadding,
-      ...layout.content,
+      widthOffset:
+        layout.sidebar.width[device] + 2 * layout.sidebar.padding[device],
+      heightOffset:
+        layout.navbar.height[device] + 2 * layout.navbar.verticalPadding,
+      padding: layout.content.padding,
+    },
+    sidebar: {
+      width: layout.sidebar.width[device],
+      padding: layout.sidebar.padding[device],
+    },
+    navbar: {
+      verticalPadding: layout.navbar.verticalPadding,
+      horizontalPadding: layout.navbar.horizontalPadding,
+      height: layout.navbar.height[device],
     },
   };
 };

@@ -1,17 +1,19 @@
-type Sidebar =
+import { LucideIcon } from "lucide-react";
+
+type Navigation =
   | undefined
   | {
       category: string;
       label: string;
-      icon: React.ReactNode;
+      icon: LucideIcon;
       link?: string;
     };
 
 type Route = {
-  element: React.ReactNode;
+  element: () => React.ReactNode;
   path: string;
 
-  sidebar?: Sidebar;
+  navigation?: Navigation;
 };
 
 export default Route;
