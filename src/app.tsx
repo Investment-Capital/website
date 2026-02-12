@@ -34,19 +34,22 @@ const App = (): React.ReactNode => {
             style={{
               borderTopLeftRadius: mobile ? undefined : "9px",
               backgroundColor: colors.primary(),
-              height: `calc(100dvh - ${
+              minHeight: `calc(100dvh - ${
                 layout.content.heightOffset + layout.content.padding * 2
               }px)`,
               width: `calc(100vw - ${
                 layout.content.widthOffset + layout.content.padding * 2
               }px)`,
               padding: layout.content.padding,
-              overflow: "auto",
             }}
           >
             <Routes>
               {routes.map((route) => (
-                <Route path={route.path} element={<route.element />} />
+                <Route
+                  path={route.path}
+                  key={route.path}
+                  element={<route.element />}
+                />
               ))}
             </Routes>
           </div>

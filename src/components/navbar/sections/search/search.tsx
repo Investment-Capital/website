@@ -4,9 +4,15 @@ import { useEffect, useState } from "react";
 import colors from "../../../../config/colors";
 import { Investor, Investors } from "investmentcapital.js";
 import SearchOption from "./option";
+import { useNavigate } from "react-router";
 
-const SearchSection = () => {
+type Props = {
+  modal?: boolean;
+};
+
+const SearchSection = ({ modal = false }: Props) => {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
   const [focussed, setFocussed] = useState(false);
   const [foundInvestors, setFoundInvestors] = useState<
     Investor["account"]["profile"][] | null
@@ -28,7 +34,7 @@ const SearchSection = () => {
     <div
       style={{
         flex: 0.4,
-        minWidth: "400px",
+        minWidth: modal ? undefined : "400px",
         position: "relative",
       }}
     >
@@ -40,24 +46,25 @@ const SearchSection = () => {
         style={{
           borderTopLeftRadius: "9px",
           borderTopRightRadius: "9px",
-          borderBottomLeftRadius: focussed ? "0px" : "9px",
-          borderBottomRightRadius: focussed ? "0px" : "9px",
+          borderBottomLeftRadius: focussed && !modal ? "0px" : "9px",
+          borderBottomRightRadius: focussed && !modal ? "0px" : "9px",
         }}
       />
-      {focussed && (
+      {(focussed || modal) && (
         <div
           onMouseDown={(element) => element.preventDefault()}
           style={{
-            position: "absolute",
-            backgroundColor: colors.primary(1),
+            position: modal ? undefined : "absolute",
+            backgroundColor: modal ? undefined : colors.primary(1),
             width: "100%",
             borderBottomLeftRadius: "9px",
             borderBottomRightRadius: "9px",
-            border: `1px solid ${colors.tertiary()}`,
+            border: modal ? undefined : `1px solid ${colors.tertiary()}`,
             boxSizing: "border-box",
             borderTop: "none",
             overflow: "auto",
             maxHeight: "300px",
+            margin: modal ? "6px 0px" : undefined,
           }}
         >
           {!foundInvestors || foundInvestors.length == 0 ? (
@@ -66,7 +73,7 @@ const SearchSection = () => {
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "center",
-                gap: "12px",
+                gap: "9px",
                 padding: "12px",
                 alignItems: "center",
               }}
@@ -90,7 +97,8 @@ const SearchSection = () => {
                 title={investor.username}
                 description={investor.id}
                 icon={Investors.icon(investor.id)}
-                link={`/investor/${investor.id}`}
+                onClick={() => navigate(`/investor/${investor.id}`)}
+                modal={modal}
               />
             ))
           )}

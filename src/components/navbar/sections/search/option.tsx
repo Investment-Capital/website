@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router";
 import useHovered from "../../../../hooks/useHovered";
 import colors from "../../../../config/colors";
 import { ChevronRight } from "lucide-react";
@@ -7,26 +6,30 @@ type Props = {
   icon: string;
   title: string;
   description: string;
-  link: string;
+  onClick: () => any;
+  modal: boolean;
 };
 
-const SearchOption = ({ icon, title, description, link }: Props) => {
+const SearchOption = ({ icon, title, description, onClick, modal }: Props) => {
   const { hovered, bind } = useHovered();
-  const navigate = useNavigate();
 
   return (
     <div
       {...bind}
       style={{
         cursor: "pointer",
-        backgroundColor: hovered ? colors.secondary() : colors.primary(),
+        backgroundColor: modal
+          ? undefined
+          : hovered
+            ? colors.secondary()
+            : colors.primary(),
         transition: "0.25s",
-        padding: "6px",
+        padding: modal ? "6px 0px" : "6px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
       }}
-      onClick={() => navigate(link)}
+      onClick={onClick}
     >
       <div
         style={{

@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import colors from "../config/colors";
 import { useModals } from "../hooks/useModals";
 
@@ -8,10 +9,7 @@ const Modals = () => {
   return (
     <div
       style={{
-        position: "absolute",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        position: "fixed",
         height: "100%",
         width: "100%",
         backgroundColor: colors.black(modal ? 0.5 : 0),
@@ -21,17 +19,48 @@ const Modals = () => {
         zIndex: 3,
       }}
     >
-      {modal && (
-        <div
-          style={{
-            backgroundColor: colors.secondary(),
-            padding: "24px",
-            borderRadius: "6px",
-          }}
-        >
-          <modal.component close={() => modals.close(modal.id)} />
-        </div>
-      )}
+      <X
+        onClick={() => modal && modals.close(modal.id)}
+        style={{
+          position: "fixed",
+          margin: "6px",
+          right: 0,
+          cursor: "pointer",
+          backgroundColor: colors.black(modal ? 0.3 : 0),
+          backdropFilter: `blur(${modal ? 4 : 0}px)`,
+          borderRadius: "100%",
+          padding: "6px",
+          transition:
+            "backdrop-filter 0.25s, background-color 0.25s, color 0.25s",
+          color: colors.white(modal ? 1 : 0),
+          pointerEvents: modal ? "auto" : "none",
+        }}
+        size={45}
+      />
+
+      <div
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
+          width: "100%",
+          display: "flex",
+        }}
+      >
+        {modal && (
+          <>
+            <div
+              style={{
+                backgroundColor: colors.secondary(),
+                padding: "24px",
+                borderRadius: "6px",
+              }}
+            >
+              <modal.component close={() => modals.close(modal.id)} />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

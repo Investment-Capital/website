@@ -1,4 +1,4 @@
-import { Crown, Settings, Star } from "lucide-react";
+import { Crown, Search, Settings, Star } from "lucide-react";
 import useAuthorization from "../../../hooks/useAuthorization";
 import { Auth, Investors } from "investmentcapital.js";
 import { useNavigate } from "react-router";
@@ -7,9 +7,12 @@ import PrestigeModal from "../../../modals/prestige";
 import SettingsModal from "../../../modals/settings";
 import LevelModal from "../../../modals/level";
 import layout from "../../../config/layout";
+import useMobile from "../../../hooks/useMobile";
+import SearchModal from "../../../modals/search";
 
 const InvestorActionsSection = () => {
   const modals = useModals();
+  const mobile = useMobile();
   const [authorization] = useAuthorization();
   const navigate = useNavigate();
 
@@ -24,6 +27,14 @@ const InvestorActionsSection = () => {
         }}
       >
         <div style={{ display: "flex", gap: "9px" }}>
+          {mobile && (
+            <Search
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={() => modals?.add(SearchModal)}
+            />
+          )}
           <Crown
             style={{
               cursor: "pointer",

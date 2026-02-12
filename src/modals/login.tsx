@@ -23,7 +23,7 @@ const LoginModal: Modal = ({ close }) => {
             (data) => {
               setAuthorization(data.authorization);
               close();
-            }
+            },
           )
         }
       />

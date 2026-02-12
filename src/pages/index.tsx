@@ -1,5 +1,11 @@
 const IndexPage = () => {
-  return <div>index</div>;
+  return (
+    <div>
+      {new Array(1000).fill("").map(() => (
+        <div>index</div>
+      ))}
+    </div>
+  );
 };
 
 export default IndexPage;
