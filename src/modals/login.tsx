@@ -27,6 +27,20 @@ const LoginModal: Modal = ({ close }) => {
           )
         }
       />
+      <Button
+        text="Sign Up"
+        onClick={() =>
+          usernameRef.current &&
+          passwordRef.current &&
+          Auth.signup(
+            usernameRef.current.value,
+            passwordRef.current.value,
+          ).then((data) => {
+            setAuthorization(data.authorization);
+            close();
+          })
+        }
+      />
       <Button text="Cancel" backgroundColor={colors.red} onClick={close} />
     </div>
   );

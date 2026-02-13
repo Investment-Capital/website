@@ -1,10 +1,12 @@
 import { X } from "lucide-react";
 import colors from "../config/colors";
 import { useModals } from "../hooks/useModals";
+import useHovered from "../hooks/useHovered";
 
 const Modals = () => {
   const modals = useModals();
   const modal = modals?.current[0];
+  const { hovered, bind } = useHovered();
 
   return (
     <div
@@ -20,13 +22,14 @@ const Modals = () => {
       }}
     >
       <X
+        {...bind}
         onClick={() => modal && modals.close(modal.id)}
         style={{
           position: "fixed",
-          margin: "6px",
+          margin: "12px",
           right: 0,
           cursor: "pointer",
-          backgroundColor: colors.black(modal ? 0.3 : 0),
+          backgroundColor: colors.black(modal ? (hovered ? 0.6 : 0.3) : 0),
           backdropFilter: `blur(${modal ? 4 : 0}px)`,
           borderRadius: "100%",
           padding: "6px",
@@ -35,7 +38,7 @@ const Modals = () => {
           color: colors.white(modal ? 1 : 0),
           pointerEvents: modal ? "auto" : "none",
         }}
-        size={45}
+        size={40}
       />
 
       <div
