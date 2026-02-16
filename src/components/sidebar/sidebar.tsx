@@ -3,6 +3,8 @@ import routes from "../../config/routes";
 import useLayout from "../../hooks/useLayout";
 import LinkSection from "./sections/link/link";
 import NetworthSection from "./sections/networth";
+import socials from "../../config/socials";
+import Social from "./sections/social";
 
 const Sidebar = () => {
   const layout = useLayout();
@@ -24,13 +26,36 @@ const Sidebar = () => {
         gap: "12px",
         flexDirection: "column",
         overflow: "auto",
+        justifyContent: "space-between",
       }}
     >
-      <NetworthSection />
+      <div
+        style={{
+          display: "flex",
+          gap: "12px",
+          flexDirection: "column",
+        }}
+      >
+        <NetworthSection />
 
-      {linkCateories.map((category) => (
-        <LinkSection category={category} key={category} />
-      ))}
+        {linkCateories.map((category) => (
+          <LinkSection category={category} key={category} />
+        ))}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          overflow: "auto",
+          gap: "6px",
+          minHeight: "fit-content",
+          justifyContent: "space-evenly",
+        }}
+      >
+        {socials.map((social) => (
+          <Social social={social} />
+        ))}
+      </div>
     </div>
   );
 };

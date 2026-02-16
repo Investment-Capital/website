@@ -51,17 +51,18 @@ const Modals = () => {
         }}
       >
         {modal && (
-          <>
-            <div
-              style={{
-                backgroundColor: colors.secondary(),
-                padding: "24px",
-                borderRadius: "6px",
-              }}
-            >
-              <modal.component close={() => modals.close(modal.id)} />
-            </div>
-          </>
+          <div
+            style={{
+              backgroundColor: colors.secondary(),
+              padding: "24px",
+              borderRadius: "6px",
+              maxHeight: "calc(90vh - 2 * 24px)",
+              maxWidth: "calc(90vw - 2 * 24px)",
+              overflow: "auto",
+            }}
+          >
+            <modal.component close={() => modals.close(modal.id)} />
+          </div>
         )}
       </div>
     </div>
