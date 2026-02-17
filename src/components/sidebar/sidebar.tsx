@@ -53,7 +53,7 @@ const Sidebar = () => {
         }}
       >
         {socials.map((social) => (
-          <Social social={social} />
+          <Social social={social} key={social.link} />
         ))}
       </div>
     </div>
