@@ -1,7 +1,10 @@
+import { useLevelsConfigCache } from "../hooks/cache/useLevelsConfigCache";
 import Modal from "../types/modal";
 
-const LevelModal: Modal = ({ close }) => {
-  return <div onClick={close}>level!</div>;
+const LevelModal: Modal = () => {
+  const levelConfig = useLevelsConfigCache();
+
+  return <p>{JSON.stringify(levelConfig)}</p>;
 };
 
 export default LevelModal;

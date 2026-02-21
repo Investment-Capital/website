@@ -12,7 +12,7 @@
     "@number-flow/react": "^0.5.10",
     "@uidotdev/usehooks": "^2.4.1",
     "babel-plugin-react-compiler": "^1.0.0",
-    "investmentcapital.js": "^1.2.2",
+    "investmentcapital.js": "^1.3.0",
     "locale-currency": "^1.0.0",
     "lucide-react": "^0.561.0",
     "react": "^19.2.0",

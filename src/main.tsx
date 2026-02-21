@@ -10,6 +10,7 @@ import "@fontsource/poppins/400";
 import "@fontsource/poppins/500";
 import "@fontsource/poppins/600";
 import "./global.css";
+import { LevelsConfigCacheProvider } from "./hooks/cache/useLevelsConfigCache.tsx";
 
 setApiData({
   baseUrl: import.meta.env.VITE_BASE_API_LINK,
@@ -18,12 +19,14 @@ setApiData({
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <BrowserRouter>
-    <StocksCacheProvider>
-      <CurrentInvestorCacheProvider>
-        <ModalProvider>
-          <App />
-        </ModalProvider>
-      </CurrentInvestorCacheProvider>
-    </StocksCacheProvider>
-  </BrowserRouter>
+    <LevelsConfigCacheProvider>
+      <StocksCacheProvider>
+        <CurrentInvestorCacheProvider>
+          <ModalProvider>
+            <App />
+          </ModalProvider>
+        </CurrentInvestorCacheProvider>
+      </StocksCacheProvider>
+    </LevelsConfigCacheProvider>
+  </BrowserRouter>,
 );
